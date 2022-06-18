@@ -1,12 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"; 
+import Header from "./components/Header/Header"
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h2>¡Hola Mundo!</h2>
-    </div>
-  );
+   <Header/>
+  )
 }
 
-export default App;
+export default App
