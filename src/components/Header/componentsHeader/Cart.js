@@ -4,7 +4,7 @@ import "../componentsHeader/cart.css"
 
 const Cart = () =>{
     return (
-        <ShoppingCartIcon fontSize="large" />
+        <ShoppingCartIcon fontSize="large" className="cart"/>
     )
 }
 

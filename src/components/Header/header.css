@@ -1,9 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+ 
+    scroll-behavior: smooth;
+}
+
 header{
+    background-color: rgb(50, 154, 240);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px 15px ;
+    
+    
 }
 
-h1{
-    margin-left: -30%;
+img{
+    width: 200px;
+    margin-left: 50px;
 }
+
+
+@media(max-width: 750px) {
+
+ #logo{
+    display: none;
+ 
+  }
+
+
+  
+ 
+ 
+ }
