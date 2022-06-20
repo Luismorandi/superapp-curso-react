@@ -1,0 +1,10 @@
+.cart{
+    margin-right: 100px;
+}
+
+@media(max-width: 750px) {
+
+    .cart{
+      margin-right: 50px;
+    
+     }}
