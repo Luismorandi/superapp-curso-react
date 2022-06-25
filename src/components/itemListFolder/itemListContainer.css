@@ -1,0 +1,23 @@
+.sectionCenter{
+    display: flex;
+    justify-content: center;
+        width: 100%;
+        padding-top: 150px;
+       
+    
+    }
+
+h1{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+@media(max-width: 750px) {
+
+h1{
+    padding-top: 30vh;
+}
+   
+    
+    }

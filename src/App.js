@@ -1,12 +1,16 @@
 import React from "react"; 
-import Navbar from "./components/Navbar/Navbar"
-import ItemListContainer from "./componentsContainer/ItemListContainer"
+import Navbar from "./components/navBarFolder/Navbar"
+import ItemListContainer from "./components/itemListFolder/ItemListContainer"
+import "./App.css"
+
 
 const App = () => {
+
+  
   return (
     <>
    <Navbar/>
-   <ItemListContainer name="Coderhouse" numero="31210"/>
+   <ItemListContainer />
    </>
   )
 }
