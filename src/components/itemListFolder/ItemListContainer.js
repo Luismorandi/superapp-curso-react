@@ -13,6 +13,7 @@ function ItemListContainer({name, numero}){
         <ItemCount stock="10" initial="1" onAdd={()=> onAdd(0)}/>
         <ItemCount stock="7" initial="1" onAdd={()=> onAdd(0)}/>
         <ItemCount stock="4" initial="1" onAdd={()=> onAdd(0)}/>
+        <ItemCount stock="0" initial="1" onAdd={()=> onAdd(0)}/>
         </div>
 
     )
