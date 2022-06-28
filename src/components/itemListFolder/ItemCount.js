@@ -7,7 +7,7 @@ import "../itemListFolder/itemCount.css"
 
 const ItemCount = ({stock, initial, onAdd}) =>{
 
-    const [count, setCount] = useState (parseInt(initial))
+    const [count, setCount] = useState (initial)
 
 
 
