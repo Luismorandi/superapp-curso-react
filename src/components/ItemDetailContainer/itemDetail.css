@@ -1,0 +1,33 @@
+.sectionCenter{
+    display: flex;
+    justify-content: center;
+        width: 100%;
+        padding-top: 150px;
+       
+    
+    }
+
+img{
+    display: flex;
+    justify-content: center;
+    min-width: 400px;
+    max-width: 450px ;
+}    
+
+h5{
+    display: flex;
+    margin-left: 55px;
+}
+
+.leftSection{
+    float: left;
+    margin-right: 60px;
+ 
+}
+
+.rightSection{
+    float: right;
+
+
+}
+
