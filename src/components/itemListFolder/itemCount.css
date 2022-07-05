@@ -3,6 +3,7 @@
   
         position: relative;
         min-width: 10%;
+        max-width: 15%;
         margin: 10px;
         box-sizing: border-box;
         text-align: center;

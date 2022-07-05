@@ -5,7 +5,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import "../itemListFolder/itemCount.css"
 
-const ItemCount = ({stock, initial, onAdd}) =>{
+const ItemCount = ({stock, initial}) =>{
 
     const [count, setCount] = useState (initial)
 
@@ -13,7 +13,6 @@ const ItemCount = ({stock, initial, onAdd}) =>{
 
     const addCartButton = () =>{
         let copyCount = count
-        onAdd(copyCount)
         console.log(copyCount)
     }
 
