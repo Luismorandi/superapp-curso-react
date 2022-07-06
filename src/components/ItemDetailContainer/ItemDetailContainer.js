@@ -6,16 +6,21 @@ import ItemDetail from "./ItemDetail";
 const ItemDetailContainer=()=>{
  
     const [detalles, setDetalles] = useState([]) 
-    let productId = useParams()
+    let {productId} = useParams()
+ 
+    
+
+/*     let productId = useParams()
+    console.log(useParams())
     const id = productId
-    const idd= id.productId
+    const idd= id.productId */
 
 
  
 
      useEffect(()=>{
 
-        const url=   `https://fakestoreapi.com/products/${idd}`
+        const url=   `https://fakestoreapi.com/products/${productId}`
 
   
         fetch(url)   

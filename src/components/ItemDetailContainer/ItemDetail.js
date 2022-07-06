@@ -1,5 +1,6 @@
 import React from "react";
 import "../ItemDetailContainer/itemDetail.css"
+import ItemCount from "../itemListFolder/ItemCount";
 
 const ItemDetail =({detalles})=>{
 
@@ -7,19 +8,20 @@ const ItemDetail =({detalles})=>{
 
     return(
         
-        <div className="sectionCenter">
+        <div className="sectionCenterDetail">
             <div className="leftSection">
         
-                <div>
-                    <h5>{detalles.description}</h5>
-                </div>
+                {<img src={detalles.image} alt="" />}
+                <h5>{detalles.description}</h5>
+                
             </div>
             <div className="rightSection">
 
         <h1>{detalles.title}</h1>
         <h3>${detalles.price} Pesos.</h3>
-        <h3>Rating: </h3>
-        <button> Agregar al Carrito</button>
+
+        <ItemCount stock={10} initial={1}/>
+        <button className="buttonDetail"> Agregar al Carrito</button>
             </div>
         
         </div>

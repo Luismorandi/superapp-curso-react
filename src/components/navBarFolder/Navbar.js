@@ -20,12 +20,12 @@ const Navbar = () => {
     
     return (
         <header>
-            <Link to="/"><img  src={logo} alt="" id="logo"/>  </Link>
+            <Link to="/" className="hola"><img  src={logo} alt="" id="logo"/>  </Link>
             <div>
             <label htmlFor="check"><MenuIcon id="menuIcon"> </MenuIcon></label>
             <input type="checkbox" id="check"/>
             <ul className="submenu">
-                {categories.map((category)=> <li><Link key={category.id} to={category.route}> {category.name}</Link></li>)}
+                {categories.map((category)=> <li className="colorLinks"><Link key={category.id} to={category.route}> {category.name}</Link></li>)}
             </ul>
         </div>    
             <Cart/>

@@ -1,0 +1,61 @@
+
+.countCard2{
+
+width: 300px;
+        margin: 10px;
+        box-sizing: border-box;
+        text-align: center;
+        border-radius: 5px;
+        padding-top: 3%;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+        0 10px 10px rgba(0, 0,0 ,0.22);
+        background: white;
+    
+        
+
+}
+
+.countCard h3{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+overflow: hidden;
+
+
+}
+.countCard3{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+
+}
+
+.buttonItem{
+    position:sticky;
+    border-radius: 5px;
+    background: rgb(50, 154, 240); 
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+   
+}
+
+.imagen{
+    overflow: hidden;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    padding-bottom: 20px;
+}
+
+@media(max-width: 750px) {
+
+    .countCard2{
+width: 300px;
+    
+        
+
+}
+   
+    
+    }

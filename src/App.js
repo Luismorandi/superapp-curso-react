@@ -9,7 +9,7 @@ import {
   Route,
 } from "react-router-dom";
 import Cart from "./components/navBarFolder/Cart";
-import ItemDetail from "./components/ItemDetailContainer/ItemDetail";
+
 
 
 const App = () => {

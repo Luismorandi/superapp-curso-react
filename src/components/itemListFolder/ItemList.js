@@ -1,5 +1,5 @@
 import Item from "./Item"
-import { Link } from "react-router-dom"
+
 
 const ItemList = ({detalles }) => { 
 
@@ -8,7 +8,7 @@ const ItemList = ({detalles }) => {
 
         <>
                {detalles.map((detalle, i)=>{
-            return <Item key={detalle.id} name={detalle.title} price={detalle.price} stock={detalle.stock} id={detalle.id} />
+            return <Item key={detalle.id} name={detalle.title} price={detalle.price}  id={detalle.id} image={detalle.image}/>
 
         })
 

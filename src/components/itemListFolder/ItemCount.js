@@ -7,14 +7,11 @@ import "../itemListFolder/itemCount.css"
 
 const ItemCount = ({stock, initial}) =>{
 
+
     const [count, setCount] = useState (initial)
 
 
 
-    const addCartButton = () =>{
-        let copyCount = count
-        console.log(copyCount)
-    }
 
     const addCountClick =() => {
         if (count < stock ){
@@ -29,16 +26,12 @@ const ItemCount = ({stock, initial}) =>{
     }
 
     return (
-        <div className="countCard2" >
-            <div className="countCard">
+            <div className="countCardCount">
                 <RemoveIcon onClick={removeCountClick}/>
                 <p>{count}</p>
                 <AddIcon onClick={addCountClick}/> 
             </div>
-            <div className="countCard3" >
-                <button onClick={addCartButton} > Agregar al Carrito</button>
-            </div>
-        </div>
+
         
     )
 }
