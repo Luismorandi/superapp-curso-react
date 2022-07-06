@@ -1,9 +1,26 @@
 import React from "react";
 import "../ItemDetailContainer/itemDetail.css"
 import ItemCount from "../itemListFolder/ItemCount";
+import { CircularProgress } from "@mui/material";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const ItemDetail =({detalles})=>{
+    
+    const [image, setImage] = useState(true)
 
+    const promise = new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            resolve(detalles.image)
+            
+        },3000)});
+
+
+  
+        useEffect(()=>{
+            promise.then (() => setImage(false))});
+    
+        
     
 
     return(
@@ -11,7 +28,7 @@ const ItemDetail =({detalles})=>{
         <div className="sectionCenterDetail">
             <div className="leftSection">
         
-                {<img src={detalles.image} alt="" />}
+                {image ? <CircularProgress /> : <img src={detalles.image} alt="" />}
                 <h5>{detalles.description}</h5>
                 
             </div>

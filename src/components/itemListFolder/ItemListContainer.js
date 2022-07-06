@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react"
 import "../itemListFolder/itemListContainer.css"
 import ItemList from "./ItemList"
 import {useParams} from "react-router-dom"
+import { CircularProgress } from "@mui/material"
 
 
 
@@ -26,7 +27,7 @@ function ItemListContainer(){
     return(
         <div className="sectionCenter">
 
-        {loaded ? <h1> hola buenas</h1> : <ItemList detalles={detalles} />}
+        {loaded ? <CircularProgress /> : <ItemList detalles={detalles} />}
         </div>
     )
 
