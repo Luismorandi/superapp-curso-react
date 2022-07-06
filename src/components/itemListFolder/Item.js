@@ -6,17 +6,17 @@ const Item = ({name, price,id, image }) => {
 
         
 
-    <div className="countCard2" >
+    <div className="card" >
         <div>
-            {<img className=" imagen"src={image} alt="" />}
+            {<img className="image"src={image} alt="" />}
         </div>
-        <div className="countCard">
+        <div className="infoCard">
             <h3>{name}</h3>
             <h3>{price}</h3>
         </div>
 
-        <div className="countCard3" >
-            <Link to={`/products/${id}`}> <button className="buttonItem"> Ver detalles de producto </button> </Link> 
+        <div className="detailButtonCard" >
+            <Link to={`/products/${id}`}> <button className="buttonCard"> Ver detalles de producto </button> </Link> 
         </div>
     </div>
    

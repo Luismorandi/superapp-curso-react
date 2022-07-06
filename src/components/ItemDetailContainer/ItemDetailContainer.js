@@ -7,32 +7,13 @@ const ItemDetailContainer=()=>{
  
     const [detalles, setDetalles] = useState([]) 
     let {productId} = useParams()
- 
-    
 
-/*     let productId = useParams()
-    console.log(useParams())
-    const id = productId
-    const idd= id.productId */
-
-
- 
-
-     useEffect(()=>{
-
+    useEffect(()=>{
         const url=   `https://fakestoreapi.com/products/${productId}`
-
-  
         fetch(url)   
             .then(res=> res.json())
             .then(res => setDetalles(res))
-    
             }, [productId] )
-
-    
- 
-    
-   
 
     return(
         <>

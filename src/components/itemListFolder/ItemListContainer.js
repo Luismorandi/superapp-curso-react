@@ -11,7 +11,7 @@ import { CircularProgress } from "@mui/material"
 
 function ItemListContainer(){
 
-    const [detalles, setDetalles] = useState([]) 
+    const [products, setProducts] = useState([]) 
     const [loaded, setLoaded] = useState(true)
     const {categoryId} = useParams();
     
@@ -20,14 +20,14 @@ function ItemListContainer(){
         
     fetch(url)   
         .then(res=> res.json())
-        .then(res => setDetalles(res))
+        .then(res => setProducts(res))
         .finally(()=> setLoaded(false))
         }, [categoryId] )
 
     return(
-        <div className="sectionCenter">
+        <div className="sectionCenterItemList">
 
-        {loaded ? <CircularProgress /> : <ItemList detalles={detalles} />}
+        {loaded ? <CircularProgress /> : <ItemList products={products} />}
         </div>
     )
 

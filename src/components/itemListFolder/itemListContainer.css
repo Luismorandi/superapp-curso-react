@@ -1,29 +1,18 @@
-.sectionCenter{
+.sectionCenterItemList{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-        width: 100%;
-        padding-top: 50px;
-  
-       
-    
+    width: 100%;
+    padding-top: 50px;
+    font-family: 'Trebuchet MS', sans-serif;
+
     }
 
-h1{
-    display: flex;
-    justify-content: center;
-    padding-top: 30px;
-}
+
 
 @media(max-width: 750px) {
 
-    .sectionCenter{
-        display:flex;
-        justify-content: center;
-            width: 100%;
-            padding-top: 150px;
-           
-        
+    .sectionCenterItemList{
+        padding-top: 150px;
         }
-    
     }

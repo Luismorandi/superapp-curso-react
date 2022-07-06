@@ -1,28 +1,23 @@
-
-.countCard2{
-
-width: 300px;
-        margin: 10px;
-        box-sizing: border-box;
-        text-align: center;
-        border-radius: 5px;
-        padding-top: 3%;
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25),
-        0 10px 10px rgba(0, 0,0 ,0.22);
-        background: white;
-    
-        
-
+.card{
+    width: 300px;
+    margin: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 5px;
+    padding-top: 3%;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+    0 10px 10px rgba(0, 0,0 ,0.22);
+    background: white;
 }
 
-.countCard h3{
+.infoCard h3{
     white-space: nowrap;
     text-overflow: ellipsis;
-overflow: hidden;
+    overflow: hidden;
 
 
 }
-.countCard3{
+.detailButtonCard{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -30,7 +25,7 @@ overflow: hidden;
 
 }
 
-.buttonItem{
+.buttonCard{
     position:sticky;
     border-radius: 5px;
     background: rgb(50, 154, 240); 
@@ -40,7 +35,7 @@ overflow: hidden;
    
 }
 
-.imagen{
+.image{
     overflow: hidden;
     justify-content: center;
     width: 200px;
@@ -50,12 +45,7 @@ overflow: hidden;
 
 @media(max-width: 750px) {
 
-    .countCard2{
-width: 300px;
-    
-        
-
-}
-   
-    
+    .card{
+        width: 300px;
+    }
     }

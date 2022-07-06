@@ -5,50 +5,44 @@
     scroll-behavior: smooth;
 }
 
-header{
+.headerNavBar{
     background-color: rgb(50, 154, 240);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 15px ;
-    
-    
+ 
 }
 
-
-
-header img{
+.headerNavBar img{
     width: 200px;
     margin-left: 50px;
 }
 
-li{
-    display: inline;
-    list-style: none;
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size:large;
-
-}
-
-a{
+.headerNavBar a{
     margin: 10px 10px;
     text-decoration: none;
-    color: rgb(250, 250, 250);
-
-    
+    color: rgb(250, 250, 250);    
 }
 
-label{
+.headerNavBar a:hover{
+    color: rgb(143, 206, 143);
+}
+
+.headerNavBar label{
     display: none;
     margin-left: 50px;
 }
 
-input{
+.headerNavBar input{
     display: none;
 }
 
-a:hover{
-    color: rgb(143, 206, 143);
+.subMenu li{
+    display: inline;
+    list-style: none;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size:large;
 }
 
 
@@ -56,40 +50,36 @@ a:hover{
 
  #logo{
     display: none;
- 
   }
-  label{
+
+.headerNavBar label{
     display: block;
     float: inline-start;
-
 }
-li{
+
+.headerNavBar a{
+    margin: none;
+}
+
+.subMenu li{
     display: list-item;
     padding-top: 1%;
     padding-bottom: 1%;
 }
-a{
-    margin: none;
-}
 
-.hola{
+.logoNavBar{
     display: none;
 }
 
-header{
- 
-
+.headerNavBar{
     justify-content:space-between;
-
-    
-    
 }
 
-.submenu{
+.subMenu{
 
    position: absolute;
    width: 100%;
-   height:  17vh;
+   height: 30vh;
    background: rgb(50, 154, 240);
    top: 50px;
    left: -150%;
@@ -100,12 +90,8 @@ header{
    0 10px 10px rgba(0, 0,0 ,0.22);
 }
 
-#check:checked+.submenu{
+#check:checked+.subMenu{
 left: 0%;
 
+ } 
 }
-
-  
- 
- 
- }
