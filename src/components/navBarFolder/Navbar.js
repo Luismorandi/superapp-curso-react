@@ -1,5 +1,5 @@
 import React from "react";
-import Cart from "../navBarFolder/Cart";
+import CartWidget from "./CartWidget";
 import "../navBarFolder/navbar.css"
 import logo from "../../assets/logo.png";
 import MenuIcon from '@mui/icons-material/Menu'
@@ -28,7 +28,7 @@ const Navbar = () => {
                 {categories.map((category)=> <li className="colorLinks"><Link key={category.id} to={category.route}> {category.name}</Link></li>)}
             </ul>
         </div>    
-            <Cart/>
+            <CartWidget/>
             
         </header>
     

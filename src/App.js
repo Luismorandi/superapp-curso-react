@@ -8,7 +8,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Cart from "./components/navBarFolder/Cart";
+import Cart from "./components/cartFolder/Cart";
 
 
 

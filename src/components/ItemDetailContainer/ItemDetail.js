@@ -4,6 +4,7 @@ import ItemCount from "../itemListFolder/ItemCount";
 import { CircularProgress } from "@mui/material";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const ItemDetail =({detalles})=>{
     
@@ -12,6 +13,12 @@ const ItemDetail =({detalles})=>{
         setTimeout(()=>{
             resolve(detalles.image) 
         },1000)});
+
+    const [endPurshase, setEndPurshase] = useState(true);    
+    const addProducts = () => {
+        setEndPurshase(false);
+
+    }    
 
     useEffect(()=>{
         promise.then (() => setImage(false))});
@@ -26,8 +33,8 @@ const ItemDetail =({detalles})=>{
             <div className="rightSectionDetail">
                 <h1>{detalles.title}</h1>
                 <h3>${detalles.price} Pesos.</h3>
-                <ItemCount stock={10} initial={1}/>
-                <button className="buttonDetail"> Agregar al Carrito</button>
+                {endPurshase ? <ItemCount stock={10} initial={1} addProducts={addProducts}/>: <Link to={`/cart`}> <button className="buttonDetail"> ¡Compra Finalizada! </button> </Link>}
+                
             </div> 
         </div>
     )

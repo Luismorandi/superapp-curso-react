@@ -1,12 +1,14 @@
 
 import React, {useState} from "react";
-import "../navBarFolder/cart.css"
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import "../itemListFolder/itemCount.css"
 
-const ItemCount = ({stock, initial}) =>{
-
+const ItemCount = ({stock, initial, addProducts}) =>{
+    
+    const addProductsCount = () =>{
+        addProducts();
+    }
     const [count, setCount] = useState (initial);
 
     const addCountClick =() => {
@@ -22,11 +24,18 @@ const ItemCount = ({stock, initial}) =>{
     };
 
     return (
+
+        <>
             <div className="countCard">
                 <RemoveIcon onClick={removeCountClick}/>
                 <p>{count}</p>
                 <AddIcon onClick={addCountClick}/> 
             </div>
+
+            <div >
+                <button onClick={addProductsCount}className="buttonDetail"> Agregar al Carrito</button>
+            </div>
+        </>
     )
 }
 
