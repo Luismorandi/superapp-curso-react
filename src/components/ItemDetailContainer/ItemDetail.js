@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../ItemDetailContainer/itemDetail.css"
-import ItemCount from "../itemListFolder/ItemCount";
+import ItemCount from "../ItemDetailContainer/ItemCount";
 import { CircularProgress } from "@mui/material";
-import { useState } from "react";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { context } from "../context/CartContextProvider"
 
-const ItemDetail =({detalles})=>{
+
+const ItemDetail =({product})=>{
+
+    let productArray = JSON.parse(JSON.stringify(product));
+
+    const {productsCart, addProductsCart, removeProducts, quantityProducts} = useContext(context);
+    console.log(productArray)
+    console.log(productArray.id)
+    console.log(productsCart)
+
     
     const [image, setImage] = useState(true);
     const promise = new Promise((resolve, reject)=>{
         setTimeout(()=>{
-            resolve(detalles.image) 
+            resolve(product.image) 
         },1000)});
 
     const [endPurshase, setEndPurshase] = useState(true);    
@@ -27,14 +35,16 @@ const ItemDetail =({detalles})=>{
     return(        
         <div className="sectionCenterDetail">
             <div className="leftSectionDetail">
-                {image ? <CircularProgress /> : <img src={detalles.image} alt="" />}
-                <h5>{detalles.description}</h5>
+                {image ? <CircularProgress /> : <img src={product.image} alt="" />}
+                <h5>{product.description}</h5>
             </div>
             <div className="rightSectionDetail">
-                <h1>{detalles.title}</h1>
-                <h3>${detalles.price} Pesos.</h3>
+                <h1>{product.title}</h1>
+                <h3>${product.price} Pesos.</h3>
                 {endPurshase ? <ItemCount stock={10} initial={1} addProducts={addProducts}/>: <Link to={`/cart`}> <button className="buttonDetail"> ¡Compra Finalizada! </button> </Link>}
-                
+                <button onClick={()=> addProductsCart(productArray)}>aprieta</button>
+                <button onClick={()=> removeProducts(productArray)}>aprieta</button>
+
             </div> 
         </div>
     )

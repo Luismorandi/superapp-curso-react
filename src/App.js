@@ -9,6 +9,7 @@ import {
   Route,
 } from "react-router-dom";
 import Cart from "./components/cartFolder/Cart";
+import CartContextProvider from "./components/context/CartContextProvider";
 
 
 
@@ -16,20 +17,17 @@ const App = () => {
 
   
   return (
-    <>
-    <BrowserRouter>
+  <BrowserRouter>
+    <CartContextProvider>
       <Navbar/>
       <Routes>
         <Route path="/" element={<ItemListContainer />}/>
         <Route path="category/:categoryId" element={<ItemListContainer />}/>
         <Route path="products/:productId" element={<ItemDetailContainer/>}/>
         <Route path="/cart" element={<Cart/>}/>
-      
       </Routes>
-    </BrowserRouter>
-    </>
-
-  
+    </CartContextProvider>
+  </BrowserRouter>
   )
 }
 
