@@ -1,42 +1,44 @@
-import React, {createContext, useState} from "react";
+import React, {createContext,  useState} from "react";
 
-export const context = createContext();
-const {Provider} =  context;
- 
+export const context = createContext();                                                                              
+const {Provider} =  context;                                  
+            
 const CartContextProvider = ({children}) => {
-
+    
     const [productsCart, setProductsCart] = useState([])
-
+    
     const checkProducts = (id) =>{
             let result = productsCart.find((objeto) =>    id === objeto.id);
-            return result;
-        
+            return result;    
      }
      
      
-     const addProductsCart = (product) =>{
-         if (checkProducts(product.id) === undefined){
-         product.cantidad=1
-         setProductsCart([...productsCart, product])
-         }
+    const addProductsCart = (product, count) =>{
+         if (checkProducts(product.id) === undefined){                                                                                          
+            product.amount= count
+            setProductsCart([...productsCart, product])
+            }
      
          else{
-            prod
-            console.log(product.cantidad)
-        
+            let copyProducts = productsCart
+            let index = copyProducts.findIndex(objeto=> product.id === objeto.id);
+            copyProducts[index].cantidad += 1
+            setProductsCart(copyProducts);
          }
      }
      
      
-     const removeProducts = (product) =>{
-     
-     let id = product.id 
-     let newProductsCart = productsCart.find((objeto) =>    id !== objeto.id);
-     setProductsCart(newProductsCart)
-         
+    const removeProducts = (product) =>{
+         let copyProducts= []
+         let id = product.id 
+         productsCart.map(function(objeto){
+           if(id !== objeto.id){
+            copyProducts.push(objeto)}
+            });
+        setProductsCart(copyProducts) 
      }
-     
-     const quantityProducts = () => {
+
+    const quantityProducts = () => {
         let result= productsCart.length
         return result
      }
