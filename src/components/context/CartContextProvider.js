@@ -38,8 +38,8 @@ const CartContextProvider = ({children}) => {
         setProductsCart(copyProducts) 
      }
 
-    const quantityProducts = () => {
-        let result= productsCart.length
+    const quantityProducts = (products) => {
+        let result= products.length
         return result
      }
      

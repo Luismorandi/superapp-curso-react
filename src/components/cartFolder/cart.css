@@ -1,0 +1,63 @@
+.sectionCenterCart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+    
+}
+
+
+#colorHeader{
+    background-color: rgb(50, 154, 240);
+    color: white;
+
+}
+
+
+td img{
+    width: 150px;
+    height: 150px;
+    margin: 25px;
+    
+}
+
+tr div td {
+    margin-right: 50px;
+}
+
+tr div{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.alignText{
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.alignText button{
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 50%;
+    width: 17px;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', sans-serif;
+
+    
+}
+
+tr td h2{
+    margin-left: 25px;
+}
+
+hr{
+    width: 125%;
+    height: 2px;
+    background-color: black;
+  
+}

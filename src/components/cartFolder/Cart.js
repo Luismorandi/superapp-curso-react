@@ -1,20 +1,51 @@
 import React, {useContext} from "react";
+import { Link } from "react-router-dom";
 import { context } from "../context/CartContextProvider"
+import "./cart.css"
 
 const Cart =()=>{
 
     const {productsCart, removeProducts} = useContext(context);
-    
+    const total = productsCart.reduce(function(contador,objeto){
+      return contador + (objeto.price * objeto.amount) 
+    },0)
+
     return(
-        <div>
-            <h1>Estos son los tiitulos de los productos dentro del carrito</h1>
-            {productsCart.map((product, i)=>{
-                return  <div key={product.id}>
-                            <h4>-{product.title}, cantidad: {product.amount}</h4> 
-                            <button onClick={()=> removeProducts(product)}> Eliminar producto</button>
-                        </div>
-                    })}
+<>
+        {productsCart.length ===0 
+        ?
+        <Link to="/">  <h1 className="sectionCenterCart">¡No hay productos! Vuelve a tus compras</h1> </Link>
+        :
+        <div className="sectionCenterCart" >
+            <table>
+                <tr id="colorHeader"> 
+                    <th >Producto</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                </tr>
+                <br />
+                
+                    {productsCart.map((product, i)=>{
+                        return  <tr key={product.id}>
+                            <div>
+                                    <td> <img src={product.image} alt="" /></td>
+                                    <td> {product.title}</td>
+                            </div>
+                                    <td className="alignText">{product.amount}</td> 
+                                    <td className="alignText">${product.price}</td>
+                                    <td className="alignText" title="Eliminar producto"><button onClick={()=>removeProducts(product)}> X</button></td>
+                                </tr>
+                        })}
+                        <hr />
+                <tr className="">
+                    <td> <h2> Total </h2></td>
+                    <td></td>
+                    <td> <h2> ${total} </h2></td>
+                </tr>
+            </table>
         </div>
+        }
+</>
     )
 }
 
