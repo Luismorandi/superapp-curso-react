@@ -6,8 +6,8 @@ import "./cart.css"
 const Cart =()=>{
 
     const {productsCart, removeProducts} = useContext(context);
-    const total = productsCart.reduce(function(contador,objeto){
-      return contador + (objeto.price * objeto.amount) 
+    const total = productsCart.reduce(function(count,object){
+      return count + (object.price * object.amount) 
     },0)
 
     return(
@@ -40,7 +40,7 @@ const Cart =()=>{
                 <tr className="">
                     <td> <h2> Total </h2></td>
                     <td></td>
-                    <td> <h2> ${total} </h2></td>
+                    <td> <h2> ${total.toFixed(2)} </h2></td>
                 </tr>
             </table>
         </div>

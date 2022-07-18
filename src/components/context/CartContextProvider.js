@@ -22,7 +22,7 @@ const CartContextProvider = ({children}) => {
          else{
             let copyProducts = productsCart
             let index = copyProducts.findIndex(objeto=> product.id === objeto.id);
-            copyProducts[index].cantidad += 1
+            copyProducts[index].amount += count
             setProductsCart(copyProducts);
          }
      }
