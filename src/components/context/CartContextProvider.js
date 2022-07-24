@@ -6,7 +6,20 @@ const {Provider} =  context;
 const CartContextProvider = ({children}) => {
     
     const [productsCart, setProductsCart] = useState([])
+    const [totalCart, setTotalCart] = useState()
+
+    const total = (array) => {
+
+        array.reduce(function(count,object){
+            const total=  count + (object.price * object.amount)
+            setTotalCart(total) 
+          },0)
+
+    }
     
+    const removeAllProducts = () =>{
+        setProductsCart([])
+    }
     const checkProducts = (id) =>{
             let result = productsCart.find((objeto) =>    id === objeto.id);
             return result;    
@@ -45,7 +58,7 @@ const CartContextProvider = ({children}) => {
      
 
     return(
-        <Provider value={{productsCart, addProductsCart, removeProducts, quantityProducts}}>
+        <Provider value={{productsCart, addProductsCart, removeProducts, quantityProducts, total, removeAllProducts}}>
             {children} 
         </Provider>
     )

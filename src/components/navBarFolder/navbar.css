@@ -39,13 +39,18 @@ header div h5{
     margin-left: 50px;
 }
 
-.headerNavBar a{
+.headerNavBar .aNav{
     margin: 10px 10px;
     text-decoration: none;
     color: rgb(250, 250, 250);    
 }
 
-.headerNavBar a:hover{
+.headerNavBar a{
+    text-decoration: none;
+
+}
+
+.headerNavBar .aNav:hover{
     color: rgb(143, 206, 143);
 }
 

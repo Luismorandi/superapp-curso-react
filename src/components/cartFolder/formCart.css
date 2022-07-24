@@ -1,0 +1,21 @@
+
+
+.inputWidthcontrols{
+    width: 100%;
+    margin: 6px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.buttonCard{
+    margin: 6px;
+    position:sticky;
+    border-radius: 5px;
+    background: rgb(50, 154, 240); 
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+   
+}
