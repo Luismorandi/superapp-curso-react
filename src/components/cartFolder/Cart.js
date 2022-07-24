@@ -12,6 +12,8 @@ import FormCart from "./formCart";
 
 const Cart = () => {
   const { productsCart, removeProducts } = useContext(context);
+  const [sectionCheckout, setSectionCheckout] = useState(true);
+
   const productsDetailToBuyer = productsCart.map((product, i) => {
     return {
       price: product.price,
@@ -20,7 +22,7 @@ const Cart = () => {
       amount: product.amount,
     };
   });
-  const total = productsCart.reduce(function (count, object) {
+  const totalOfCart = productsCart.reduce(function (count, object) {
     return count + object.price * object.amount;
   }, 0);
 
@@ -30,16 +32,16 @@ const Cart = () => {
       personalData,
       productsDetailToBuyer,
       date: serverTimestamp(),
-      total: total,
-    }).then((result) => {
-      console.log(result);
-    });
+      total: totalOfCart,
+    })
   };
 
-  const [sectionCheckout, setSectionCheckout] = useState(true);
+  
   const goToCheckout = () => {
     setSectionCheckout(false);
   };
+
+
   return (
     <>
       {productsCart.length === 0 ? (
@@ -90,7 +92,7 @@ const Cart = () => {
                 <td></td>
                 <td>
                   {" "}
-                  <h2> ${total.toFixed(2)} </h2>
+                  <h2> ${totalOfCart.toFixed(2)} </h2>
                 </td>
               </tr>
               <button className="buttonCart" onClick={goToCheckout}>

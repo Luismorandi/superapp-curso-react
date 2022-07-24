@@ -9,12 +9,12 @@ import { context } from "../context/CartContextProvider"
 const ItemDetail =({product})=>{
 
     const [image, setImage] = useState(true);
-    const [countCopy, setCountCopy] = useState(1);
+    const [count, setCount] = useState(1);
     const { addProductsCart } = useContext(context);
     
     
-    const countOfItemCount = (countOriginal) =>{
-        setCountCopy(countOriginal)
+    const countPushToState = (countOriginal) =>{
+        setCount(countOriginal)
     }
     
     const promise = new Promise((resolve, reject)=>{
@@ -35,8 +35,8 @@ const ItemDetail =({product})=>{
                 <div className="rightSectionDetail">
                     <h1>{product.title}</h1>
                     <h3>${product.price} Pesos.</h3>
-                    <ItemCount stock={10} initial={1} countOfItemCount={countOfItemCount}/> 
-                    <Link to={`/cart`}> <button className="buttonDetail" onClick={()=> addProductsCart(product, countCopy)}> ¡Comprar! </button> </Link>
+                    <ItemCount stock={product.stock}  countPushToState={countPushToState}/> 
+                    <Link to={`/cart`}> <button className="buttonDetail" onClick={()=> addProductsCart(product, count)}> ¡Comprar! </button> </Link>
                 </div> 
             </div>
         )

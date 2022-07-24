@@ -2,19 +2,29 @@
     width: 300px;
     margin: 10px;
     box-sizing: border-box;
-    text-align: center;
-    border-radius: 5px;
-    padding-top: 3%;
+    border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25),
     0 10px 10px rgba(0, 0,0 ,0.22);
-    background: white;
+    background: hsl(0, 100%, 100%);
+    border: 1px solid hsl(0, 0%, 93%);
+    position: relative;
+    transition: all 300ms;
+}
+.card:hover{
+transform: scale(1.015);
+}
+.linkCard{
+    text-decoration: none;
+    
+}
+.infoCard {
+margin: 5px 20px 0;
 }
 
 .infoCard h3{
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-
 
 }
 .detailButtonCard{
@@ -25,30 +35,75 @@
 
 }
 
-.buttonCard{
-    position:sticky;
-    border-radius: 5px;
-    background: rgb(50, 154, 240); 
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-   
-}
 
 .image{
     overflow: hidden;
     justify-content: center;
     width: 200px;
     height: 200px;
-    padding-bottom: 20px;
+    margin: 50px;
+    text-align: center;
 }
 
 .nameOfItem{
-    margin-left: 18px;
-    margin-right: 18px;
+ 
+    color: hsl(0, 0%, 47%);
+    font-size: 0.95rem;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    transition: 0.2s ease;
+}
+.nameOfItem:hover{
+    color: hsl(0, 0%, 13%);
 }
 .priceOfItem{
-    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.ratingOfItem{
+    color: hsl(29, 90%, 65%);
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.categoryOfItem{
+    color: hsl(353, 100%, 78%);
+    font-size: 0.80rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+}
+
+.imgOfItem{
+    text-align: center;
+}
+
+.priceBox{
+    display: flex;
+    gap: 10px;
+    font-size: 1.0rem;
+    margin-bottom: 10px;
+    color: hsl(0, 0%, 13%);
+}
+
+del{
+    color: hsl(0, 0%, 47%);
+}
+
+.offerOfItem{
+    position:absolute;
+    top: 10px;
+    left: 15px;
+    background: hsl(152, 51%, 52%);
+    font-size: 0.90rem;
+    font-weight: 500;
+    color: hsl(0, 100%, 100%);
+    padding: 0 8px;
+    border-radius: 5px ;
+    z-index: 3;
+   
+
 }
 @media(max-width: 750px) {
 

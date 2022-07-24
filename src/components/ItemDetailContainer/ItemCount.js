@@ -4,23 +4,24 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import "../ItemDetailContainer/itemCount.css";
 
 
-const ItemCount = ({ stock, initial, countOfItemCount }) => {
-  const [count, setCount] = useState(initial);
-  const mensajeroCount = () => {
-    countOfItemCount(count + 1);
+const ItemCount = ({ stock,  countPushToState }) => {
+  const [count, setCount] = useState(1);
+
+  const transferCount = () => {
+    countPushToState(count + 1);
   };
 
   const addCountClick = () => {
     if (count < stock) {
       setCount(count + 1);
-      mensajeroCount();
+      transferCount();
     }
   };
 
   const removeCountClick = () => {
     if (count > 1) {
       setCount(count - 1);
-      mensajeroCount();
+      transferCount();
     }
   };
 

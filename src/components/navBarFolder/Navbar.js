@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 import { context } from "../context/CartContextProvider";
 
 const categories = [
-  { name: "Electronica", id: 0, route: "/category/electronics" },
-  { name: "Joyas", id: 1, route: "/category/jewelery" },
-  { name: "Hombre", id: 2, route: "/category/men's clothing" },
-  { name: "Mujer", id: 3, route: "/category/women's clothing" },
+  { name: "Electronica", id: 0, route: "/category/Electronica" },
+  { name: "Joyas", id: 1, route: "/category/Joyas" },
+  { name: "Hombre", id: 2, route: "/category/Hombre" },
+  { name: "Mujer", id: 3, route: "/category/Mujer" },
 ];
 
 const Navbar = () => {

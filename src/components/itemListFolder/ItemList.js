@@ -11,6 +11,8 @@ const ItemList = ({ products }) => {
             price={product.price}
             id={product.id}
             image={product.image}
+            rating={product.rating}
+            category={product.category}
           />
         );
       })}
