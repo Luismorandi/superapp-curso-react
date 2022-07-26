@@ -68,7 +68,7 @@ margin: 5px 20px 0;
 }
 
 .categoryOfItem{
-    color: hsl(353, 100%, 78%);
+    color: hsl(198, 56%, 66%);
     font-size: 0.80rem;
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -95,7 +95,7 @@ del{
     position:absolute;
     top: 10px;
     left: 15px;
-    background: hsl(152, 51%, 52%);
+    background: hsl(198, 56%, 66%);
     font-size: 0.90rem;
     font-weight: 500;
     color: hsl(0, 100%, 100%);

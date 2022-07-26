@@ -11,9 +11,10 @@ import {
 import FormCart from "./formCart";
 
 const Cart = () => {
+ 
   const { productsCart, removeProducts } = useContext(context);
   const [sectionCheckout, setSectionCheckout] = useState(true);
-
+  console.log(productsCart)
   const productsDetailToBuyer = productsCart.map((product, i) => {
     return {
       price: product.price,
