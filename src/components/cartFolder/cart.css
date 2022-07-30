@@ -1,75 +1,178 @@
-.sectionCenterCart{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3%;
-    
-}
 
-.buttonCart{
-    margin-left: 39%;
-    position:sticky;
-    border-radius: 5px;
-    background: rgb(50, 154, 240); 
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    width: 49%;
-   
-}
+ .sectionCenterCart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
 
-
-#colorHeader{
-    background-color: rgb(50, 154, 240);
-    color: white;
-
-}
-
-
-td img{
-    width: 150px;
-    height: 150px;
-    margin: 25px;
-    
-}
-
-tr div td {
-    margin-right: 50px;
-}
-
-tr div{
-    display: flex;
-    align-items: center;
-    text-align: center;
-}
-
-.alignText{
-    justify-content: center;
-    text-align: center;
-    
-}
-
-.alignText button{
-    justify-content: center;
-    text-align: center;
-    color: white;
-    background-color: red;
-    border: none;
-    border-radius: 50%;
-    width: 17px;
-    cursor: pointer;
-    font-family: 'Trebuchet MS', sans-serif;
-
-    
-}
-
-tr td h2{
-    margin-left: 25px;
-}
-
-hr{
-    width: 125%;
-    height: 2px;
-    background-color: black;
+ a {
+    color: inherit;
+    text-decoration: none;
+  }
   
-}
+  .buttonCart {
+    border: none;
+    background: none;
+    font: inherit;
+    cursor: pointer;
+  }
+  
+  ion-icon, span { display: inline-block; }
+  
+  .labelCart, .imgCart { display: block; }
+  
+  .inputCart {
+    font: inherit;
+    width: 100%;
+    border: none;
+  }
+  
+  .inputCart:focus { outline: 2px solid hsl(219, 77%, 60%); }
+  
+  /**
+   * Remove number input up & down button
+   */
+   .inputCart::-webkit-inner-spin-button,
+   .inputCart::-webkit-outer-spin-button {
+    appearance:         none;
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /**
+   * Custom scrollbar style
+   */
+  ::-webkit-scrollbar { width: 8px; }
+  
+  ::-webkit-scrollbar-track { background: transparent; }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 80%);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
+  
+  
+  
+  
+  
+  /*-----------------------------------*\
+    #MAIN STYLE
+  \*-----------------------------------*/
+  
+  /**
+   * main container 
+   */
+  
+  .containerCart {
+    max-width: 1440px;
+    min-height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .heading {
+    font-size: 28px;
+    font-weight: 600;
+    color: hsl(0, 0%, 25%);
+    border-bottom: 1px solid hsl(0, 0%, 90%);
+    padding: 20px 60px;
+    display:     flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .heading ion-icon { font-size: 40px; }
+  
+  .item-flex {
+    display: flex;
+    flex-grow: 1;
+  }
+  
+  /**
+   * checkout section style 
+   */
+  
+ 
+  
+  /**
+   * cart section style
+   */
+  
+   @media (max-width: 1200px) {
+  
+    .item-flex { flex-direction: column-reverse; }
+  
+    /**
+     * checkout section responsive 
+     */
+  
+    .checkout {
+      
+      border-right: none;
+    }
+  
+    .btn-primary { width: 100%; }
+  
+    /**
+     * cart section responsive
+     */
+  
+    .cart {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      border-bottom: 1px solid hsl(0, 0%, 90%);
+    }
+  
+    .cart .wrapper { margin-top: auto; }
+  
+    .cart .cart-item-box {
+      border-right: 1px solid hsl(0, 0%, 90%);
+      margin-bottom: 0;
+    }
+  
+    .discount-token { border-top: none; }
+  
+  }
+  
+  
+  
+  
+  
+  @media (max-width: 768px) {
+  
+    :root { --px: 40px; }
+  
+    .cart { grid-template-columns: 1fr; }
+  
+    .discount-token { border-top: 1px solid hsl(0, 0%, 90%); }
+  
+    .wrapper-flex { gap: 20px; }
+  
+  }
+  
+  
+  
+  
+  
+  @media (max-width: 567px) {
+  
+    :root { --px: 20px; }
+  
+    .payment-method,
+    .input-flex {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .payment-method .method { width: 100%; }
+  
+    .input-flex .expire-date,
+    .input-flex .cvv { width: 100%; }
+  
+    .expire-date .input-flex { flex-direction: row; }
+  
+  }

@@ -1,9 +1,22 @@
- .countCard {
+ .section-center-count{
         display: flex;
         justify-content: space-between;
+        width: 45%;
     
     }
 
-    .buttonDetail{
-        margin-top: 20px;
+.icon-count{
+    cursor: pointer;
+}    
+
+
+
+    @media screen and (max-width: 992px){
+        .section-center-count {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        
+        }
     }
+    

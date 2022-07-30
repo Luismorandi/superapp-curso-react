@@ -1,85 +1,167 @@
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+}
 
-.sectionCenterDetail{
-    display: flex;
-    justify-content: center;
+
+
+.img-detail {
     width: 100%;
-    padding-top: 150px;
-    font-family: 'Trebuchet MS', sans-serif;        
-    }
-
-
-
-.leftSectionDetail{
-    text-align: center;
-    width: 50%;
+    display: block;
 }
 
-.leftSectionDetail img{
-    width: 50%;
-}
-
-.leftSectionDetail h5{
+.section-center-detail {
+    min-height: 70vh;
     display: flex;
-    margin-left: 55px;
+    align-items: center;
+    justify-content: center;
 }
 
+.container-detail {
+    max-width: 1200px;
+    padding: 0 1rem;
+    margin: 0 auto;
+    border-radius: 10px;
+    background: hsl(0, 100%, 100%);
+    border: 1px solid hsl(0, 0%, 93%);
+}
 
-.rightSectionDetail{
-    width: 20%;
-    margin-right: 25% ;
-    margin-left: 5% ;
-    border: 8px;
-    width: 300px;
-    border-radius: 5px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
-    0 10px 10px rgba(0, 0,0 ,0.22);
-    background: white;
-    height: fit-content;
+.product-div {
+    margin: 1rem 0;
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #fff;
+    border-radius: 3px;
+    column-gap: 10px;
+}
+
+.product-div-left {
     padding: 20px;
 }
 
-.buttonDetail{
-    padding-top: 150px;
-    position:sticky;
-    border-radius: 5px;
-    background: rgb(50, 154, 240); 
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    width: 100%;
-    transition: all .5s;
+.product-div-right {
+    padding: 20px;
 }
 
-@media(max-width: 1100px) {
+.img-container .img-detail {
+    width: 200px;
+    margin: 0 auto;
+}
 
-    .sectionCenterDetail{
-        display:flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        }
 
-    .leftSectionDetail{
-        text-align: center;
-        width: 80%;
-        }
-    
-    .leftSectionDetail img{
-        width: 80%;    
-        }    
+.product-div-right span {
+    display: block;
+}
 
-    .leftSectionDetail h5{
-        display: flex;
-        margin-left: 0px;
-        margin-bottom: 25px;
-        }
+.product-name {
+    font-size: 26px;
+    margin-bottom: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
 
-    .rightSectionDetail{
-        width: 80%;
-        margin-right: 0% ;
-        margin-left: 0%;
-        }
+.product-price {
+    font-weight: 700;
+    font-size: 24px;
+    opacity: 0.9;
+    font-weight: 500;
+}
 
-    .buttonDetail{
-        position: inherit;
-        }
+.product-rating {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+}
+.product-rating span {
+ 
+    margin-bottom: 5px;
+}
+
+.color-star-rating {
+    color: hsl(29, 90%, 65%);
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.product-rating span {
+    margin-right: 6px;
+}
+
+.product-description {
+    font-weight: 18px;
+    line-height: 1.6;
+    font-weight: 300;
+    opacity: 0.9;
+    margin-top: 22px;
+}
+
+.item-action {
+    margin-top: 22px;
+}
+
+.item-action button {
+    display: inline-block;
+    font-size: 16px;
+    font-family: inherit;
+    text-transform: uppercase;
+    padding: 15px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-cart-btn {
+    border: 1px solid rgb(0, 0, 0);
+    ;
+    border-radius: 5px;
+    background: hsl(0, 100%, 100%);
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+.add-cart-btn:hover {
+    background: hsl(0, 0%, 93%);
+
+}
+
+
+.buy-btn {
+    border-radius: 5px;
+    background: hsl(198, 56%, 66%);
+    border: 1px solid hsl(198, 56%, 66%);
+    cursor: pointer;
+    transition: all .5s;
+    color: white;
+}
+
+.buy-btn:hover {
+    background:rgb(50, 154, 240);
+}
+
+@media screen and (max-width: 992px) {
+    .product-div {
+        grid-template-columns: 100%;
     }
+
+    .product-div-right {
+        text-align: center;
+    }
+
+    .product-rating {
+        justify-content: center;
+    }
+
+    .product-description {
+        max-width: 400px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .item-action button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

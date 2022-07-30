@@ -27,14 +27,14 @@ const ItemCount = ({ stock,  countPushToState }) => {
 
   return (
     <>
-      <div className="countCard">
-        <RemoveIcon onClick={removeCountClick} />
+      <div className="section-center-count">
+        <RemoveIcon onClick={removeCountClick} className="icon-count"/>
         <p>{count}</p>
         <AddIcon
           onClick={() => {
             addCountClick();
           }}
-        />
+        className="icon-count"/>
       </div>
     </>
   );

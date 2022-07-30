@@ -3,18 +3,16 @@ import { Link } from "react-router-dom";
 import { context } from "../context/CartContextProvider";
 import "./cart.css";
 import { db } from "../../firebase/firebase";
-import {
-  collection,
-  addDoc,
-  serverTimestamp,
-} from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import FormCart from "./formCart";
+import emptyCart from "../../../src/assets/noProducts.png";
+import DetailCart from "./detailCart";
 
 const Cart = () => {
- 
   const { productsCart, removeProducts } = useContext(context);
   const [sectionCheckout, setSectionCheckout] = useState(true);
-  console.log(productsCart)
+  const [congratulation, setCongratulation] = useState(true)
+
   const productsDetailToBuyer = productsCart.map((product, i) => {
     return {
       price: product.price,
@@ -33,79 +31,43 @@ const Cart = () => {
       personalData,
       productsDetailToBuyer,
       date: serverTimestamp(),
-      total: totalOfCart,
+      total: (totalOfCart +10.00),
     })
+  
   };
 
-  
   const goToCheckout = () => {
     setSectionCheckout(false);
   };
-
 
   return (
     <>
       {productsCart.length === 0 ? (
         <Link to="/">
-          {" "}
+          <div className="sectionCenterCart">
+            <img src={emptyCart} alt="" />
+          </div>
           <h1 className="sectionCenterCart">
-            ¡No hay productos! Vuelve a tus compras
-          </h1>{" "}
+            ¡No hay productos! Clickea acá para volver a la tienda.
+          </h1>
         </Link>
+
+        
       ) : (
-        <>
-          <div className="sectionCenterCart">
-            <table>
-              <tr id="colorHeader">
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Subtotal</th>
-              </tr>
-              <br />
+        <main class="containerCart">
+          <h1 class="heading">Carrito de compras</h1>
+          <div class="item-flex">
+            {/* <!--
+   - checkout section
+  --> */}
+            <FormCart checkOut={checkOut} totalOfCart={totalOfCart} />
 
-              {productsCart.map((product, i) => {
-                return (
-                  <tr key={product.id}>
-                    <div>
-                      <td>
-                        {" "}
-                        <img src={product.image} alt="" />
-                      </td>
-                      <td> {product.title}</td>
-                    </div>
-                    <td className="alignText">{product.amount}</td>
-                    <td className="alignText">${product.price}</td>
-                    <td className="alignText" title="Eliminar producto">
-                      <button onClick={() => removeProducts(product)}>
-                        {" "}
-                        X
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
-              <hr />
-              <tr className="">
-                <td>
-                  {" "}
-                  <h2> Total </h2>
-                </td>
-                <td></td>
-                <td>
-                  {" "}
-                  <h2> ${totalOfCart.toFixed(2)} </h2>
-                </td>
-              </tr>
-              <button className="buttonCart" onClick={goToCheckout}>
-                Ir a pagar
-              </button>
-            </table>
+            {/* <!--
+    - cart section
+  --> */}
+            <DetailCart totalOfCart={totalOfCart} />
           </div>
-
-          <div className="sectionCenterCart">
-            {sectionCheckout ? "" : <FormCart checkOut={checkOut} />}
-          </div>
-        </>
+        </main>
       )}
     </>
   );

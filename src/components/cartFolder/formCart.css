@@ -1,21 +1,183 @@
-
-
-.inputWidthcontrols{
-    width: 100%;
-    margin: 6px;
-    height: 25px;
-    border-radius: 5px;
-    border: 1px solid black;
+.section-checkout {
+  width: 70%;
+  padding: 40px 60px;
+  background: hsl(0, 0%, 100%);
+  border-right: 1px solid hsl(0, 0%, 90%);
 }
 
-.buttonCard{
-    margin: 6px;
-    position:sticky;
-    border-radius: 5px;
-    background: rgb(50, 154, 240); 
-    border: none;
-    padding: 10px;
-    cursor: pointer;
+.heading-checkout {
+  color: hsl(0, 0%, 25%);
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.form-cart {
+  margin-bottom: 40px;
+}
+
+.form-method {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.form-method .method {
+  border: 1px solid hsl(0, 0%, 64%);
+  border-radius: 5px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.form-method .selected {
+  border-color: hsl(219, 77%, 60%);
+}
+
+.button-payment-cart {
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.label-cart {
+  padding-left: 10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: hsl(0, 0%, 64%);
+}
+
+.input-cart {
+
+  width: 100%;
+  margin: 6px;
+  height: 25px;
+  border-radius: 5px;
+  background: hsl(0, 0%, 91%);
+  color: hsl(0, 0%, 30%);
+  padding: 10px 15px;
+  font-size: 18px;
+  font-weight: 500;
+
+}
+
+
+.div-input-cart {
+  margin-bottom: 20px;
+}
+
+.card-number .input-cart,
+.cvv .input-cart {
+  letter-spacing: 3px;
+}
+
+.input-flex {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.input-flex .expire-date,
+.input-flex .cvv {
+  width: 50%;
+}
+
+.expire-date .input-flex {
+  color: hsl(0, 0%, 62%);
+  gap: 13px;
+}
+
+.expire-date .input-flex .input-cart {
+  text-align: center;
+}
+
+.btn {
+  border-radius: 5px;
+}
+
+.btn:active {
+  transform: scale(0.99);
+}
+
+.btn:focus {
+  color: hsl(0, 0%, 100%);
+  background: hsl(219, 77%, 60%);
+  outline: 2px solid hsl(219, 77%, 60%);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: hsl(219, 77%, 60%);
+  font-weight: 500;
+  color: hsl(0, 0%, 100%);
+  padding: 13px 45px;
+}
+
+.btn-primary b {
+  margin-right: 10px;
+}
+
+@media (max-width: 1200px) {
+
+  .item-flex {
+    flex-direction: column-reverse;
+  }
+
+
+  .checkout {
+
+    border-right: none;
+  }
+
+  .btn-primary {
     width: 100%;
-   
+  }
+
+  ;
+
+}
+
+@media (max-width: 768px) {
+
+
+  .wrapper-flex {
+    gap: 20px;
+  }
+
+}
+
+
+
+
+
+@media (max-width: 567px) {
+
+  :root {
+    --px: 20px;
+  }
+
+  .form-method,
+  .input-flex {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-method .method {
+    width: 100%;
+  }
+
+  .input-flex .expire-date,
+  .input-flex .cvv {
+    width: 100%;
+  }
+
+  .expire-date .input-flex {
+    flex-direction: row;
+  }
+
 }
