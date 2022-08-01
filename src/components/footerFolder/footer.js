@@ -13,20 +13,20 @@ const categories = [
 ];
 const Footer = () => {
   return (
-    <section className="footer-fixed">
-      <div class="footer">
-        <div class="container">
-          <div class="row">
+    <section >
+      <div className="section-footer">
+        <div className="container-footer">
+          <div className="row-footer">
             <div class="footer-col-1">
               <h3>Descarga la app</h3>
               <p>Descargala en Android o iPhone</p>
-              <div class="app-logo">
+              <div className="app-logo-footer">
                 <img src={PlayStore} alt="" />
                 <img src={AppStore} alt="" />
               </div>
               <hr className="hr-footer" />
             </div>
-            <div class="footer-col-2">
+            <div className="footer-col-2">
               <img src={LogoAzul} alt="" />
               <p>
                 AllStore, el eCommerce por departamento con los mejores
@@ -34,12 +34,12 @@ const Footer = () => {
               </p>
               <hr className="hr-footer" />
             </div>
-            <div class="footer-col-3">
+            <div className="footer-col-3">
               <h3>Menú</h3>
               <ul>
                 {categories.map((category) => (
-                  <li className="colorLinks" key={category.id}>
-                    <Link className="aNav" to={category.route}>
+                  <li className="link-footer" key={category.id}>
+                    <Link className="link-footer" to={category.route}>
                       {" "}
                       {category.name}
                     </Link>
@@ -48,7 +48,7 @@ const Footer = () => {
               </ul>
               <hr className="hr-footer" />
             </div>
-            <div class="footer-col-4">
+            <div className="footer-col-4">
               <h3>Siguenos</h3>
               <ul>
                 <li>Facebook</li>
@@ -63,7 +63,7 @@ const Footer = () => {
             </div>
           </div>
           <hr className="hr-footer1" />
-          <p  class="coderhouse">
+          <p className="coderhouse-footer">
             Trabajo final para la carrera frontEnd en Coderhouse (2022)
           </p>
         </div>

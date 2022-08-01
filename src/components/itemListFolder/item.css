@@ -1,24 +1,25 @@
-.linkToCart-item{
-    text-decoration: none; 
+.linkToCart-item {
+    text-decoration: none;
 }
 
-.cardStyle-item{
+.cardStyle-item {
     width: 300px;
     margin: 10px;
     box-sizing: border-box;
     border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
-    0 10px 10px rgba(0, 0,0 ,0.22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
     background: hsl(0, 100%, 100%);
     border: 1px solid hsl(0, 0%, 93%);
     position: relative;
     transition: all 300ms;
 }
-.cardStyle-item:hover{
-transform: scale(1.015);
+
+.cardStyle-item:hover {
+    transform: scale(1.015);
 }
 
-.imageOfCard-item{
+.imageOfCard-item {
     overflow: hidden;
     justify-content: center;
     width: 200px;
@@ -28,18 +29,18 @@ transform: scale(1.015);
 }
 
 .infoOfCard-item {
-margin: 5px 20px 0;
+    margin: 5px 20px 0;
 }
 
-.infoOfCard-item h3{
+.infoOfCard-item h3 {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 
 }
 
-.offerOfCard-item{
-    position:absolute;
+.offerOfCard-item {
+    position: absolute;
     top: 10px;
     left: 15px;
     background: hsl(198, 56%, 66%);
@@ -47,13 +48,13 @@ margin: 5px 20px 0;
     font-weight: 500;
     color: hsl(0, 100%, 100%);
     padding: 0 8px;
-    border-radius: 5px ;
+    border-radius: 5px;
     z-index: 3;
-   
+
 
 }
 
-.categoryOfCard-item{
+.categoryOfCard-item {
     color: hsl(198, 56%, 66%);
     font-size: 0.80rem;
     text-transform: uppercase;
@@ -61,8 +62,8 @@ margin: 5px 20px 0;
 
 }
 
-.nameOfCard-item{
- 
+.nameOfCard-item {
+
     color: hsl(0, 0%, 47%);
     font-size: 0.95rem;
     text-transform: capitalize;
@@ -70,7 +71,8 @@ margin: 5px 20px 0;
     margin-bottom: 5px;
     transition: 0.2s ease;
 }
-.detailButtonCard{
+
+.detailButtonCard {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -78,7 +80,7 @@ margin: 5px 20px 0;
 
 }
 
-.ratingOfCard-item{
+.ratingOfCard-item {
     color: hsl(29, 90%, 65%);
     margin-bottom: 5px;
     font-size: 1rem;
@@ -88,31 +90,32 @@ margin: 5px 20px 0;
 
 
 
-.nameOfCard-item:hover{
+.nameOfCard-item:hover {
     color: hsl(0, 0%, 13%);
 }
 
 
 
-.priceBox-item{
+.priceBox-item {
     display: flex;
     gap: 10px;
     font-size: 1.0rem;
     margin-bottom: 10px;
     color: hsl(0, 0%, 13%);
 }
-.priceOfCard-item{
+
+.priceOfCard-item {
     font-weight: 700;
 }
 
-.priceBox-item del{
+.priceBox-item del {
     color: hsl(0, 0%, 47%);
 }
 
 
 @media(max-width: 750px) {
 
-    .cardStyle-item{
+    .cardStyle-item {
         width: 300px;
     }
-    }
+}

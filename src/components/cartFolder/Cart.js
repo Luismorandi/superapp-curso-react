@@ -48,20 +48,20 @@ const Cart = () => {
     <>
       {productsCart.length === 0 ? (
         <Link to="/">
-          <div className="sectionCenterCart">
+          <div className="sectionCenter-cart">
           <img src={congratulation===true? finishBuy : emptyCart} alt="" />
             
           </div>
-          <h1 className="sectionCenterCart">
+          <h1 className="sectionCenter-cart">
             {congratulation===true?"Tu compra va en camino. Clickea acá para seguir comprando.": "¡No hay productos! Clickea acá para volver a la tienda."  }
           </h1>
         </Link>
 
         
       ) : (
-        <main class="containerCart">
-          <h1 class="heading">Carrito de compras</h1>
-          <div class="item-flex">
+        <main className="container-cart">
+          <h1 className="heading">Carrito de compras</h1>
+          <div className="item-flex">
             {/* <!--
    - checkout section
   --> */}

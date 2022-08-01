@@ -1,24 +1,23 @@
- .section-center-count{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 35%;
-        margin-bottom: 10px;
-    
-    }
+ .section-center-count {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     width: 35%;
+     margin-bottom: 10px;
 
-.icon-count{
-    cursor: pointer;
-}    
+ }
+
+ .icon-count {
+     cursor: pointer;
+ }
 
 
 
-    @media screen and (max-width: 992px){
-        .section-center-count {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-        
-        }
-    }
-    
+ @media screen and (max-width: 992px) {
+     .section-center-count {
+         display: flex;
+         justify-content: space-around;
+         width: 100%;
+
+     }
+ }

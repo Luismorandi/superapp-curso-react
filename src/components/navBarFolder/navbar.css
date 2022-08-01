@@ -75,7 +75,7 @@
 }
 
 .iconQuantity-navbar-none {
-    display: none;
+    visibility: hidden;
 
 }
 

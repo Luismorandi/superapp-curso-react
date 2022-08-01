@@ -17,6 +17,7 @@ const Navbar = () => {
   const { quantityProducts, productsCart } = useContext(context);
 
   const quantity = quantityProducts(productsCart);
+  console.log(quantity)
 
   return (
     <header className="header-navbar">
@@ -46,7 +47,7 @@ const Navbar = () => {
         </ul>
       </div>
       <Link to="/cart">
-        <div className="iconQuantity-navbar ">
+        <div className="iconQuantity-navbar">
           <CartWidget  />
           <h5 className={quantity === 0 ? "iconQuantity-navbar-none" : ""}>
             {quantity}

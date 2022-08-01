@@ -3,10 +3,10 @@ import "./formCart.css";
 import { context } from "../context/CartContextProvider";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import CurrencyBitcoinIcon from "@mui/icons-material/CurrencyBitcoin";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 
-
-const notify = () => toast.error("¡Uy! Parece que faltó un campo del formulario por llenar.")
+const notify = () =>
+  toast.error("¡Uy! Parece que faltó un campo del formulario por llenar.");
 
 const FormCart = ({ checkOut, totalOfCart }) => {
   const { removeAllProducts } = useContext(context);
@@ -24,118 +24,112 @@ const FormCart = ({ checkOut, totalOfCart }) => {
   };
 
   const finish = () => {
-    if((personalData.nombre && personalData.apellido && personalData.mail).trim().length > 0  ){
-
+    if (
+      (personalData.nombre && personalData.apellido && personalData.mail).trim()
+        .length > 0
+    ) {
       checkOut(personalData);
       removeAllProducts();
+    } else {
+      notify();
     }
-    else{
-      notify()
-    }
-    };
+  };
 
   return (
-    <section class="section-checkout">
-      <Toaster
-  position="top-center"
-  reverseOrder={false}
-/>
-      <h2 class="heading-checkout">Detalles de pago</h2>
+    <section className="section-checkout">
+      <Toaster position="top-center" reverseOrder={false} />
+      <h2 className="heading-checkout">Detalles de pago</h2>
 
-      <div class="form-cart">
-        <div class="form-method ">
-          <button class="method selected button-payment-cart">
+      <div className="form-cart">
+        <div className="form-method ">
+          <button className="method selected button-payment-cart">
             <CreditCardIcon className="card1" />
 
             <span>Tarjeta de Credito</span>
 
-            <ion-icon class="checkmark fill" name="checkmark-circle"></ion-icon>
+          
           </button>
 
-          <button class="method button-payment-cart">
+          <button className="method button-payment-cart">
             <CurrencyBitcoinIcon className="logo-paypal" />
 
             <span>Bitcoin</span>
 
-            <ion-icon
-              class="checkmark"
-              name="checkmark-circle-outline"
-            ></ion-icon>
           </button>
         </div>
 
-        
         <form action="#">
-          <div class="div-input-cart">
-            <label class="label-cart labelCart">Nombre</label>
+          <div className="div-input-cart">
+            <label className="label-cart labelCart">Nombre</label>
             <input
               type="text"
               name="nombre"
               id="nombre"
-              class="input-cart inputCart"
+              className="input-cart inputCart"
               placeholder=""
               onChange={handleInputChange}
-             required/>
+              required
+            />
           </div>
 
-          <div class="div-input-cart">
-            <label class="label-cart labelCart">Apellido</label>
+          <div className="div-input-cart">
+            <label className="label-cart labelCart">Apellido</label>
             <input
               type="text"
               name="apellido"
               id="apellido"
-              class="input-cart inputCart"
+              className="input-cart inputCart"
               placeholder=""
               onChange={handleInputChange}
             />
           </div>
-          <div class="div-input-cart">
-            <label class="label-cart labelCart">Mail</label>
+          <div className="div-input-cart">
+            <label className="label-cart labelCart">Mail</label>
             <input
               type="text"
               name="mail"
               id="mail"
-              class="input-cart inputCart"
+              className="input-cart inputCart"
               placeholder=""
               onChange={handleInputChange}
             />
           </div>
-          <div class="div-input-cart">
-            <label class="label-cart labelCart">Tarjeta de Credito</label>
+          <div className="div-input-cart">
+            <label className="label-cart labelCart">Tarjeta de Credito</label>
             <input
               type="text"
               name="tdc"
               id="tdc"
-              class="input-cart inputCart"
+              className="input-cart inputCart"
               placeholder="1111-1111-1111-1111"
               readOnly
             />
           </div>
 
-          <div class="input-flex">
-            <div class="expire-date">
+          <div className="inputFlex-checkout">
+            <div className="expire-date">
               <label for="expire-date" class="label-cart labelCart">
                 Expiration date
               </label>
 
-              <div class="input-flex">
+              <div className="inputFlex-checkout">
                 <input
                   type="number"
                   placeholder="11"
-                  class="input-cart inputCart"
+                  className="input-cart inputCart"
                   readOnly
                 />
 
                 <input
                   type="number"
                   placeholder="11"
-                  class="input-cart inputCart"
+                  className="input-cart inputCart"
                   readOnly
                 />
               </div>
             </div>
 
-            <div class="cvv">
+            <div className="cvv">
               <label for="cvv" class="label-cart labelCart">
                 CVV
               </label>
@@ -143,19 +137,17 @@ const FormCart = ({ checkOut, totalOfCart }) => {
                 type="number"
                 name="cvv"
                 id="cvv"
-                class="input-cart inputCart"
+                className="input-cart inputCart"
                 placeholder="1111"
                 readOnly
               />
             </div>
           </div>
         </form>
-        <button class="btn btn-primary button-payment-cart" onClick={finish}>
-        <b>Pagar</b> $ <span id="payAmount">{totalOfCart + 10.0}</span>
-      </button>
+        <button className="btn btn-primary button-payment-cart" onClick={finish}>
+          <b>Pagar</b> $ <span id="payAmount">{totalOfCart + 10.0}</span>
+        </button>
       </div>
-
-      
     </section>
   );
 };
