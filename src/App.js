@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Cart from "./components/cartFolder/Cart";
 import CartContextProvider from "./components/context/CartContextProvider";
+import Footer from "./components/footerFolder/footer";
 
 
 
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="products/:productId" element={<ItemDetailContainer/>}/>
         <Route path="/cart" element={<Cart/>}/>
       </Routes>
+      <Footer />
     </CartContextProvider>
   </BrowserRouter>
   )

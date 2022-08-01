@@ -10,11 +10,26 @@ body {
     display: block;
 }
 
+
+
 .section-center-detail {
     min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.section-center-circular{
+    
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50%;
+        font-family: 'Trebuchet MS', sans-serif;
+    
+        
 }
 
 .container-detail {
@@ -133,7 +148,10 @@ body {
     cursor: pointer;
     transition: all .5s;
     color: white;
+    margin-left: 5px;
 }
+
+
 
 .buy-btn:hover {
     background:rgb(50, 154, 240);
@@ -156,6 +174,14 @@ body {
         max-width: 400px;
         margin-right: auto;
         margin-left: auto;
+    }
+    .add-cart-btn {
+       width: 100%;
+       margin-bottom: 10px;
+    }
+    .buy-btn {
+        width: 100%;
+        margin-left: 0px;
     }
 }
 

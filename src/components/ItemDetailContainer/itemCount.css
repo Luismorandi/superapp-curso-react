@@ -1,7 +1,9 @@
  .section-center-count{
         display: flex;
         justify-content: space-between;
-        width: 45%;
+        align-items: center;
+        width: 35%;
+        margin-bottom: 10px;
     
     }
 

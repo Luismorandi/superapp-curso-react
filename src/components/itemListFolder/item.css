@@ -1,4 +1,8 @@
-.card{
+.linkToCart-item{
+    text-decoration: none; 
+}
+
+.cardStyle-item{
     width: 300px;
     margin: 10px;
     box-sizing: border-box;
@@ -10,33 +14,11 @@
     position: relative;
     transition: all 300ms;
 }
-.card:hover{
+.cardStyle-item:hover{
 transform: scale(1.015);
 }
-.linkCard{
-    text-decoration: none;
-    
-}
-.infoCard {
-margin: 5px 20px 0;
-}
 
-.infoCard h3{
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-
-}
-.detailButtonCard{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding-bottom: 10px;
-
-}
-
-
-.image{
+.imageOfCard-item{
     overflow: hidden;
     justify-content: center;
     width: 200px;
@@ -45,53 +27,18 @@ margin: 5px 20px 0;
     text-align: center;
 }
 
-.nameOfItem{
- 
-    color: hsl(0, 0%, 47%);
-    font-size: 0.95rem;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-    transition: 0.2s ease;
-}
-.nameOfItem:hover{
-    color: hsl(0, 0%, 13%);
-}
-.priceOfItem{
-    font-weight: 700;
+.infoOfCard-item {
+margin: 5px 20px 0;
 }
 
-.ratingOfItem{
-    color: hsl(29, 90%, 65%);
-    margin-bottom: 5px;
-    font-size: 1rem;
-}
-
-.categoryOfItem{
-    color: hsl(198, 56%, 66%);
-    font-size: 0.80rem;
-    text-transform: uppercase;
-    margin-bottom: 10px;
+.infoOfCard-item h3{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
 }
 
-.imgOfItem{
-    text-align: center;
-}
-
-.priceBox{
-    display: flex;
-    gap: 10px;
-    font-size: 1.0rem;
-    margin-bottom: 10px;
-    color: hsl(0, 0%, 13%);
-}
-
-del{
-    color: hsl(0, 0%, 47%);
-}
-
-.offerOfItem{
+.offerOfCard-item{
     position:absolute;
     top: 10px;
     left: 15px;
@@ -105,9 +52,67 @@ del{
    
 
 }
+
+.categoryOfCard-item{
+    color: hsl(198, 56%, 66%);
+    font-size: 0.80rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+}
+
+.nameOfCard-item{
+ 
+    color: hsl(0, 0%, 47%);
+    font-size: 0.95rem;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    transition: 0.2s ease;
+}
+.detailButtonCard{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+
+}
+
+.ratingOfCard-item{
+    color: hsl(29, 90%, 65%);
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+
+
+
+
+.nameOfCard-item:hover{
+    color: hsl(0, 0%, 13%);
+}
+
+
+
+.priceBox-item{
+    display: flex;
+    gap: 10px;
+    font-size: 1.0rem;
+    margin-bottom: 10px;
+    color: hsl(0, 0%, 13%);
+}
+.priceOfCard-item{
+    font-weight: 700;
+}
+
+.priceBox-item del{
+    color: hsl(0, 0%, 47%);
+}
+
+
 @media(max-width: 750px) {
 
-    .card{
+    .cardStyle-item{
         width: 300px;
     }
     }

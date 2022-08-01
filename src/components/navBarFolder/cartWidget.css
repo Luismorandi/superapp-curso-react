@@ -1,11 +1,12 @@
-.cart{
+.cart {
     margin-right: 100px;
     color: hsl(0, 0, 27%);
 }
 
 @media(max-width: 750px) {
 
-    .cart{
-      margin-right: 50px;
-    
-     }}
+    .cart {
+        margin-right: 50px;
+
+    }
+}

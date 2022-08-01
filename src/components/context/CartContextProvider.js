@@ -17,7 +17,7 @@ const CartContextProvider = ({children}) => {
      }
      
      
-    const addProductsCart = (product, count) =>{
+    const addProductsCart = (product, count, funcion) =>{
          if (checkProducts(product.id) === undefined){                                                                                          
             product.amount= count
             setProductsCart([...productsCart, product])
@@ -29,6 +29,8 @@ const CartContextProvider = ({children}) => {
             copyProducts[index].amount += count
             setProductsCart(copyProducts);
          }
+
+         funcion()
      }
      
      

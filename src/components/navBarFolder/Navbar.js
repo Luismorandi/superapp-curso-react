@@ -3,7 +3,7 @@ import CartWidget from "./CartWidget";
 import "../navBarFolder/navbar.css";
 import logo from "../../assets/logo.png";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { context } from "../context/CartContextProvider";
 
 const categories = [
@@ -19,30 +19,36 @@ const Navbar = () => {
   const quantity = quantityProducts(productsCart);
 
   return (
-    <header className="headerNavBar">
-      <Link to="/" className="logoNavBar">
+    <header className="header-navbar">
+      <Link to="/" className="logo-navbar">
         <img src={logo} alt="" id="logo" />{" "}
       </Link>
       <div>
         <label htmlFor="check">
-          <MenuIcon id="menuIcon"> </MenuIcon>
+          <MenuIcon > </MenuIcon>
         </label>
         <input type="checkbox" id="check" />
-        <ul className="subMenu">
+        <ul className="submenu-navbar">
+          <li  id="home">
+            <NavLink to="/" className="link-navbar">
+              Home
+            </NavLink>
+          </li>
+
           {categories.map((category) => (
-            <li className="colorLinks" key={category.id}>
-              <Link className="aNav" to={category.route}>
+            <li className="" key={category.id}>
+              <NavLink className="link-navbar" to={category.route}>
                 {" "}
                 {category.name}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
       </div>
       <Link to="/cart">
-        <div className="iconQuantityFlex ">
-          <CartWidget className="cartWidget" />
-          <h5 className={quantity === 0 ? "iconQuantityNone" : ""}>
+        <div className="iconQuantity-navbar ">
+          <CartWidget  />
+          <h5 className={quantity === 0 ? "iconQuantity-navbar-none" : ""}>
             {quantity}
           </h5>
         </div>

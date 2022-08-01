@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
 import { context } from "../context/CartContextProvider";
 import "./detailCart.css";
@@ -7,7 +8,6 @@ import "./detailCart.css";
 const DetailCart = ({totalOfCart}) =>{
 
     const { productsCart, removeProducts } = useContext(context);
-    console.log(productsCart)
 
 
     return(
@@ -42,8 +42,8 @@ const DetailCart = ({totalOfCart}) =>{
                           </div>
                         </div>
 
-                        <button className="product-close-btn buttonCart">
-                          <ion-icon name="close-outline"></ion-icon>
+                        <button className="product-close-btn " onClick={()=>removeProducts(product)}>
+                          <RemoveCircleOutlineIcon > </RemoveCircleOutlineIcon>
                         </button>
                       </div>
                     </div>
@@ -56,7 +56,7 @@ const DetailCart = ({totalOfCart}) =>{
                   <div class="subtotal">
                     <span>Subtotal</span>{" "}
                     <span>
-                      $ <span id="subtotal">{totalOfCart}</span>
+                      $ <span id="subtotal">{totalOfCart.toFixed(2)}</span>
                     </span>
                   </div>
                   <div class="shipping">
@@ -69,7 +69,7 @@ const DetailCart = ({totalOfCart}) =>{
                   <div class="total">
                     <span>Total</span>{" "}
                     <span>
-                      $ <span id="total">{totalOfCart + 10.0}</span>
+                      $ <span id="total">{(totalOfCart + 10.0).toFixed(2)}</span>
                     </span>
                   </div>
                 </div>

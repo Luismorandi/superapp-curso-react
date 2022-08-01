@@ -1,18 +1,26 @@
-.sectionCenterItemList{
+.sectionCenterItemList {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
     padding-top: 50px;
+    padding-bottom: 50px;
     font-family: 'Trebuchet MS', sans-serif;
+    position: relative;
 
-    }
+}
+
+.circular-progress {
+    margin-bottom: 60%;
+}
+
+
 
 
 
 @media(max-width: 750px) {
 
-    .sectionCenterItemList{
+    .sectionCenterItemList {
         padding-top: 50px;
-        }
     }
+}

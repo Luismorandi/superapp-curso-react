@@ -6,12 +6,14 @@ import { db } from "../../firebase/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import FormCart from "./formCart";
 import emptyCart from "../../../src/assets/noProducts.png";
+import finishBuy from "../../../src/assets/finishBuy.png"
 import DetailCart from "./detailCart";
 
 const Cart = () => {
   const { productsCart, removeProducts } = useContext(context);
   const [sectionCheckout, setSectionCheckout] = useState(true);
-  const [congratulation, setCongratulation] = useState(true)
+  const [congratulation, setCongratulation] = useState(false)
+
 
   const productsDetailToBuyer = productsCart.map((product, i) => {
     return {
@@ -27,12 +29,14 @@ const Cart = () => {
 
   const checkOut = (personalData) => {
     const docOrder = collection(db, "orders");
+    setCongratulation(true);
     addDoc(docOrder, {
       personalData,
       productsDetailToBuyer,
       date: serverTimestamp(),
       total: (totalOfCart +10.00),
     })
+    
   
   };
 
@@ -45,10 +49,11 @@ const Cart = () => {
       {productsCart.length === 0 ? (
         <Link to="/">
           <div className="sectionCenterCart">
-            <img src={emptyCart} alt="" />
+          <img src={congratulation===true? finishBuy : emptyCart} alt="" />
+            
           </div>
           <h1 className="sectionCenterCart">
-            ¡No hay productos! Clickea acá para volver a la tienda.
+            {congratulation===true?"Tu compra va en camino. Clickea acá para seguir comprando.": "¡No hay productos! Clickea acá para volver a la tienda."  }
           </h1>
         </Link>
 

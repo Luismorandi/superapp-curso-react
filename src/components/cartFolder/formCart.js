@@ -3,6 +3,10 @@ import "./formCart.css";
 import { context } from "../context/CartContextProvider";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import CurrencyBitcoinIcon from "@mui/icons-material/CurrencyBitcoin";
+import toast, { Toaster } from 'react-hot-toast';
+
+
+const notify = () => toast.error("¡Uy! Parece que faltó un campo del formulario por llenar.")
 
 const FormCart = ({ checkOut, totalOfCart }) => {
   const { removeAllProducts } = useContext(context);
@@ -20,12 +24,22 @@ const FormCart = ({ checkOut, totalOfCart }) => {
   };
 
   const finish = () => {
-    checkOut(personalData);
-    removeAllProducts();
-  };
+    if((personalData.nombre && personalData.apellido && personalData.mail).trim().length > 0  ){
+
+      checkOut(personalData);
+      removeAllProducts();
+    }
+    else{
+      notify()
+    }
+    };
 
   return (
     <section class="section-checkout">
+      <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
       <h2 class="heading-checkout">Detalles de pago</h2>
 
       <div class="form-cart">
@@ -33,7 +47,7 @@ const FormCart = ({ checkOut, totalOfCart }) => {
           <button class="method selected button-payment-cart">
             <CreditCardIcon className="card1" />
 
-            <span>Credit Card</span>
+            <span>Tarjeta de Credito</span>
 
             <ion-icon class="checkmark fill" name="checkmark-circle"></ion-icon>
           </button>
@@ -50,6 +64,7 @@ const FormCart = ({ checkOut, totalOfCart }) => {
           </button>
         </div>
 
+        
         <form action="#">
           <div class="div-input-cart">
             <label class="label-cart labelCart">Nombre</label>
@@ -60,7 +75,7 @@ const FormCart = ({ checkOut, totalOfCart }) => {
               class="input-cart inputCart"
               placeholder=""
               onChange={handleInputChange}
-            />
+             required/>
           </div>
 
           <div class="div-input-cart">
@@ -135,11 +150,12 @@ const FormCart = ({ checkOut, totalOfCart }) => {
             </div>
           </div>
         </form>
-      </div>
-
-      <button class="btn btn-primary button-payment-cart" onClick={finish}>
+        <button class="btn btn-primary button-payment-cart" onClick={finish}>
         <b>Pagar</b> $ <span id="payAmount">{totalOfCart + 10.0}</span>
       </button>
+      </div>
+
+      
     </section>
   );
 };

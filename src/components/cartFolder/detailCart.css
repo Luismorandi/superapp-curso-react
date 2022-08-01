@@ -70,13 +70,14 @@
   .product-close-btn {
     position: absolute;
     top:   0;
-    right: 0;
+    right: -20px;
+    cursor: pointer;
+
+    border: none;
+    background: transparent;
   }
   
-  .product-close-btn ion-icon {
-    font-size: 25px;
-    color: hsl(0, 0%, 64%);
-  }
+ 
   
   .product-close-btn:hover ion-icon { color: hsl(0, 77%, 60%); }
   
@@ -127,6 +128,7 @@
     font-weight: 700;
     color: hsl(0, 0%, 25%);
   }
+
   
   
   
