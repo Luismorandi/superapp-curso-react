@@ -13,7 +13,7 @@ const Cart = () => {
   const { productsCart, removeProducts } = useContext(context);
   const [sectionCheckout, setSectionCheckout] = useState(true);
   const [congratulation, setCongratulation] = useState(false)
-
+  window.scrollTo(0, 0)
 
   const productsDetailToBuyer = productsCart.map((product, i) => {
     return {

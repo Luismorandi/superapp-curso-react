@@ -7,7 +7,7 @@ import { getDocs, collection } from "firebase/firestore";
 const ItemDetailContainer = () => {
   const [product, setproduct] = useState([]);
   let { productId } = useParams();
-
+  window.scrollTo(0, 0)
   useEffect(() => {
     const productsColletions = collection(db, "products");
 

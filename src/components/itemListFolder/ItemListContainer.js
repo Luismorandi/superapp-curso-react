@@ -10,13 +10,15 @@ function ItemListContainer() {
   const [products, setProducts] = useState([]);
   const [loaded, setLoaded] = useState(true);
   const { categoryId } = useParams();
-
+  window.scrollTo(0, 0)
   useEffect(() => {
     const productsColletions = collection(db, "products");
     const q = query(
       productsColletions,
       where("category", "==", `${categoryId}`)
     );
+
+    
 
     const url = categoryId ? q : productsColletions;
 
