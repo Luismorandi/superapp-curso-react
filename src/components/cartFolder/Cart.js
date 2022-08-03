@@ -11,7 +11,6 @@ import DetailCart from "./detailCart";
 
 const Cart = () => {
   const { productsCart, removeProducts } = useContext(context);
-  const [sectionCheckout, setSectionCheckout] = useState(true);
   const [congratulation, setCongratulation] = useState(false)
   window.scrollTo(0, 0)
 
@@ -40,19 +39,17 @@ const Cart = () => {
   
   };
 
-  const goToCheckout = () => {
-    setSectionCheckout(false);
-  };
+
 
   return (
     <>
       {productsCart.length === 0 ? (
         <Link to="/">
           <div className="sectionCenter-cart">
-          <img src={congratulation===true? finishBuy : emptyCart} alt="" />
+          <img src={congratulation===true? finishBuy : emptyCart} alt="" className="img-notify-cart"/>
             
           </div>
-          <h1 className="sectionCenter-cart">
+          <h1 className="sectionCenter-cart  sectionCenterNotify-cart">
             {congratulation===true?"Tu compra va en camino. Clickea acá para seguir comprando.": "¡No hay productos! Clickea acá para volver a la tienda."  }
           </h1>
         </Link>

@@ -26,11 +26,20 @@
   display: flex;
   flex-grow: 1;
 }
+
   
    @media (max-width: 1200px) {
   
     .item-flex { flex-direction: column-reverse; }
-  
+    .img-notify-cart{
+      width: 300px;
+      height: 300px;
+    }
+    .sectionCenterNotify-cart{
+      text-align: center;
+      margin-bottom: 100px;
+     }
+    
 
    }
   
