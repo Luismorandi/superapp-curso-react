@@ -1,33 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import "../ItemDetailContainer/itemDetail.css";
 import ItemCount from "../ItemDetailContainer/ItemCount";
 import { CircularProgress } from "@mui/material";
-import { Link } from "react-router-dom";
-import { context } from "../context/CartContextProvider";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-import toast, { Toaster } from "react-hot-toast";
 
-const notify = () => toast.success("Agregaste con exito el articulo.");
 
-const ItemDetail = ({ product }) => {
+const ItemDetail = ({ selectedProduct }) => {
+
+
   const [image, setImage] = useState(false);
-  const [count, setCount] = useState(1);
-  const [goToPay, setGoToPay] = useState(false);
-  const { addProductsCart } = useContext(context);
 
-  const countPushToState = (countOriginal) => {
-    setCount(countOriginal);
-  };
 
-  const goToPayFunction = () => {
-    setGoToPay(true);
-    notify();
-    setCount(1);
-  };
+
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(product.image);
+      resolve(selectedProduct.image);
     }, 1000);
   });
 
@@ -43,72 +31,56 @@ const ItemDetail = ({ product }) => {
         </div>
       ) : (
         <div className="section-center-detail">
-          <Toaster position="top-center" reverseOrder={false} />
+         
           <div className="container-detail">
             <div className="product-div">
               <div className="product-div-left">
                 <div className="img-container">
-                  <img src={product.image} className="img-detail" />
+                  <img src={selectedProduct.image} className="img-detail" alt="producto"/>
                 </div>
               </div>
 
               <div className="product-div-right">
-                <span className="product-name">{product.title}</span>
-                <span className="product-price">${product.price}</span>
+                <span className="product-name">{selectedProduct.title}</span>
+                <span className="product-price">${selectedProduct.price}</span>
                 <div className="product-rating">
                   <div>
-                    {product.rating >= 1 ? (
+                    {selectedProduct.rating >= 1 ? (
                       <StarIcon className="color-star-rating" />
                     ) : (
                       <StarBorderIcon className="color-star-rating" />
                     )}
-                    {product.rating >= 2 ? (
+                    {selectedProduct.rating >= 2 ? (
                       <StarIcon className="color-star-rating" />
                     ) : (
                       <StarBorderIcon className="color-star-rating" />
                     )}
-                    {product.rating >= 3 ? (
+                    {selectedProduct.rating >= 3 ? (
                       <StarIcon className="color-star-rating" />
                     ) : (
                       <StarBorderIcon className="color-star-rating" />
                     )}
-                    {product.rating >= 4 ? (
+                    {selectedProduct.rating >= 4 ? (
                       <StarIcon className="color-star-rating" />
                     ) : (
                       <StarBorderIcon className="color-star-rating" />
                     )}
-                    {product.rating >= 5 ? (
+                    {selectedProduct.rating >= 5 ? (
                       <StarIcon className="color-star-rating" />
                     ) : (
                       <StarBorderIcon className="color-star-rating" />
                     )}
                   </div>
-                  <span>({product.rating})</span>
+                  <span>({selectedProduct.rating})</span>
                 </div>
-                <p className="product-description">{product.description}</p>
+                <p className="product-description">{selectedProduct.description}</p>
                 <div className="item-action">
                   <ItemCount
-                    stock={product.stock}
-                    countPushToState={countPushToState}
-                    count={count}
+                    stock={selectedProduct.stock}
+                    selectedProduct={selectedProduct}
                     className=""
                   />
-                  <button
-                    type="button"
-                    className="add-cart-btn"
-                    onClick={() =>
-                      addProductsCart(product, count, goToPayFunction())
-                    }
-                  >
-                    Agregar a Carrito
-                  </button>
-                  {goToPay === true ? (
-                    <Link to={`/cart`}>
-                      <button className="buy-btn"> ¡Ir a pagar! </button>
-                    </Link>
-                  ) : (
-                    ""
-                  )}
+                  
                 </div>
               </div>
             </div>

@@ -5,7 +5,7 @@ import { db } from "../../firebase/firebase";
 import { getDocs, collection } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
-  const [product, setproduct] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState([]);
   let { productId } = useParams();
   window.scrollTo(0, 0)
   useEffect(() => {
@@ -18,14 +18,14 @@ const ItemDetailContainer = () => {
           ...product.data(),
         };
       });
-      const product = products.find((element) => element.id === productId);
-      setproduct(product);
+      const selectedProduct = products.find((element) => element.id === productId);
+      setSelectedProduct(selectedProduct);
     });
   }, [productId]);
 
   return (
     <>
-      <ItemDetail product={product} />
+      <ItemDetail selectedProduct={selectedProduct} />
     </>
   );
 };

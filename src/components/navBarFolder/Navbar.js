@@ -17,7 +17,7 @@ const Navbar = () => {
   const { quantityProducts, productsCart } = useContext(context);
 
   const quantity = quantityProducts(productsCart);
-  console.log(quantity)
+  
 
   return (
     <header className="header-navbar">

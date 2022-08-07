@@ -108,7 +108,7 @@ const FormCart = ({ checkOut, totalOfCart }) => {
 
           <div className="inputFlex-checkout">
             <div className="expire-date">
-              <label for="expire-date" class="label-cart labelCart">
+              <label htmlFor="expire-date" className="label-cart labelCart">
                 Expiration date
               </label>
 
@@ -130,7 +130,7 @@ const FormCart = ({ checkOut, totalOfCart }) => {
             </div>
 
             <div className="cvv">
-              <label for="cvv" class="label-cart labelCart">
+              <label htmlFor="cvv" className="label-cart labelCart">
                 CVV
               </label>
               <input

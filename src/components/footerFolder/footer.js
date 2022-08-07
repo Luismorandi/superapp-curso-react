@@ -1,5 +1,5 @@
 import "./footer.css";
-import LogoBlanco from "../../assets/logoBlanco.png";
+
 import LogoAzul from "../../assets/fondoAzul.png";
 import PlayStore from "../../assets/play-store.png";
 import AppStore from "../../assets/app-store.png";
@@ -17,7 +17,7 @@ const Footer = () => {
       <div className="section-footer">
         <div className="container-footer">
           <div className="row-footer">
-            <div class="footer-col-1">
+            <div className="footer-col-1">
               <h3>Descarga la app</h3>
               <p>Descargala en Android o iPhone</p>
               <div className="app-logo-footer">
@@ -54,7 +54,6 @@ const Footer = () => {
                 <li>Facebook</li>
                 <li>Twitter</li>
                 <li>
-                  <a href="#"></a>
                   Instagram
                 </li>
                 <li>Youtube</li>

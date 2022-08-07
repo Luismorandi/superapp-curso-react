@@ -3,6 +3,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+ 
+ }
+
+ a{
+  text-decoration: none;
+ }
+
+ .sectionCenterNotify-cart{
+text-align: center;
  }
 
  .container-cart {

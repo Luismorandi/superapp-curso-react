@@ -1,26 +1,26 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 
 import { context } from "../context/CartContextProvider";
 import "./detailCart.css";
 
 const DetailCart = ({ totalOfCart }) => {
-  const { productsCart, removeProducts } = useContext(context);
+  const { productsCart, removeProducts, removeAllProducts } = useContext(context);
 
   return (
-    <section class="cart-detail">
-      <div class="cart-box-detail">
-        <h2 class="heading-cart-detail">Detalles de compra</h2>
+    <section className="cart-detail">
+      <div className="cart-box-detail">
+        <h2 className="heading-cart-detail">Detalles de compra</h2>
 
         {productsCart.map((product, i) => {
           return (
-            <div className="product-card">
+            <div key={product.id} className="product-card">
               <div className="card1">
                 <div >
                   <img
                     src={product.image}
                     width="80px"
-                   
+                    alt="producto"
                   />
                 </div>
 
@@ -45,9 +45,14 @@ const DetailCart = ({ totalOfCart }) => {
                   <RemoveCircleOutlineIcon> </RemoveCircleOutlineIcon>
                 </button>
               </div>
+            
             </div>
           );
         })}
+
+<button className="btn-detail  " onClick={()=>removeAllProducts()}>
+          Eliminar productos
+        </button>
       </div>
 
       <div className="wrapper">

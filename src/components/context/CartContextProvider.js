@@ -17,20 +17,22 @@ const CartContextProvider = ({children}) => {
      }
      
      
-    const addProductsCart = (product, count, funcion) =>{
+    const addProductsCart = (product, count ) =>{
          if (checkProducts(product.id) === undefined){                                                                                          
             product.amount= count
             setProductsCart([...productsCart, product])
             }
      
          else{
-            let copyProducts = productsCart
+            let copyProducts = productsCart.slice()
             let index = copyProducts.findIndex(objeto=> product.id === objeto.id);
             copyProducts[index].amount += count
             setProductsCart(copyProducts);
+            
+            
          }
 
-         funcion()
+        
      }
      
      
@@ -45,8 +47,12 @@ const CartContextProvider = ({children}) => {
      }
 
     const quantityProducts = (products) => {
-        let result= products.length
-        return result
+
+        const amount= products.reduce(function (count, object) {
+            return count + object.amount
+          }, 0);
+       
+        return amount
      }
      
 
