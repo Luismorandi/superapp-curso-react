@@ -31,5 +31,5 @@ En este proyecto utilicé Javascript, html, css, react js y una libreria de noti
 ## `DEMO`
 
 
-[AllStore - Google Chrome 2022-08-07 03-01-40](https://user-images.githubusercontent.com/96397176/183277625-3e89ccd3-41b5-4653-ad8a-1029f696579c.gif)
+![AllStore - Google Chrome 2022-08-07 03-01-40](https://user-images.githubusercontent.com/96397176/183277625-3e89ccd3-41b5-4653-ad8a-1029f696579c.gif)
 
