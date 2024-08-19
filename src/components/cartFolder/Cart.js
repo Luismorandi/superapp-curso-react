@@ -6,7 +6,7 @@ import { db } from "../../firebase/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import FormCart from "./formCart";
 import emptyCart from "../../../src/assets/noProducts.png";
-import finishBuy from "../../../src/assets/finishBuy.png"
+import finishBuy from "../../../src/assets/finishBuy.png";
 import DetailCart from "./detailCart";
 
 const Cart = () => {
@@ -14,8 +14,7 @@ const Cart = () => {
   const [congratulation, setCongratulation] = useState(false);
   const [id, setId] = useState("");
 
-  window.scrollTo(0, 0)
-
+  window.scrollTo(0, 0);
 
   const productsDetailToBuyer = productsCart.map((product, i) => {
     return {
@@ -31,37 +30,34 @@ const Cart = () => {
 
   const checkOut = (personalData) => {
     const docOrder = collection(db, "orders");
-    setCongratulation(true)
+    setCongratulation(true);
     addDoc(docOrder, {
       personalData,
       productsDetailToBuyer,
       date: serverTimestamp(),
-      total: (totalOfCart +10.00),
-    })
-    .then((res)=>{
+      total: totalOfCart + 10.0,
+    }).then((res) => {
       setId(res.id);
-     
-    })
-  
+    });
   };
-
-
 
   return (
     <>
-      {productsCart.length === 0  ? (
-
+      {productsCart.length === 0 ? (
         <Link to="/">
           <div className="sectionCenter-cart">
-          <img src={congratulation===true  ? finishBuy : emptyCart} alt="" className="img-notify-cart"/>
-            
+            <img
+              src={congratulation === true ? finishBuy : emptyCart}
+              alt=""
+              className="img-notify-cart"
+            />
           </div>
           <h1 className="  sectionCenterNotify-cart">
-            {congratulation===true  ? `Tu compra con el ID ${id} va en camino. Clickea acá para seguir comprando.`: "¡No hay productos! Clickea acá para volver a la tienda."  }
+            {congratulation === true
+              ? `Tu compra con el ID ${id} va en camino. Clickea acá para seguir comprando.`
+              : "¡No hay productos! Clickea acá para volver a la tienda."}
           </h1>
         </Link>
-
-        
       ) : (
         <main className="container-cart">
           <h1 className="heading">Carrito de compras</h1>
@@ -69,7 +65,7 @@ const Cart = () => {
             {/* <!--
    - checkout section
   --> */}
-            <FormCart checkOut={checkOut} totalOfCart={totalOfCart} />
+            {/* <FormCart checkOut={checkOut} totalOfCart={totalOfCart} /> */}
 
             {/* <!--
     - cart section

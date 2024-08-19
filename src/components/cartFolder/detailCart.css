@@ -21,12 +21,34 @@
     transition: 0.2s;
   }
 
-  .btn-detail:hover{
+  .btn-detail-reserved{
+    border-radius: 5px;
+    width: 100%;
+    margin-left: 20px;
+    margin-top: 50px;
+    border: none;
+    background: none;
+    font: inherit;
+    cursor: pointer;
+    background: blue;
+    font-weight: 500;
+    color: hsl(0, 0%, 100%);
+    padding: 13px 45px;
+    transition: 0.2s;
+  }
+
+  .btn-detail:hover {
 
    background:hsl(0, 0%, 100%);
    color: hsl(7, 64%, 55%);
    border: 1px solid hsl(7, 64%, 55%);
   }
+  .btn-detail-reserved:hover {
+
+    background:hsl(0, 0%, 100%);
+    color: blue;
+    border: 1px solid blue;
+   }
  
   
 

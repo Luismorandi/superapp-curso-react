@@ -5,7 +5,8 @@ import { context } from "../context/CartContextProvider";
 import "./detailCart.css";
 
 const DetailCart = ({ totalOfCart }) => {
-  const { productsCart, removeProducts, removeAllProducts } = useContext(context);
+  const { productsCart, removeProducts, removeAllProducts, reservedProduct } =
+    useContext(context);
 
   return (
     <section className="cart-detail">
@@ -16,9 +17,13 @@ const DetailCart = ({ totalOfCart }) => {
           return (
             <div key={product.id} className="product-card">
               <div className="card1">
-                <div >
+                <div>
                   <img
-                    src={product.image}
+                    src={
+                      Array.isArray(product.image)
+                        ? product.image[0]
+                        : product.image
+                    }
                     width="80px"
                     alt="producto"
                   />
@@ -29,11 +34,11 @@ const DetailCart = ({ totalOfCart }) => {
 
                   <div className="wrapper">
                     <div className="product-qty">
-                      <span > Cantidad: {product.amount}</span>
+                      <span> Cantidad: {product.amount}</span>
                     </div>
 
-                    <div >
-                      Precio $ <span >{product.price}</span>
+                    <div>
+                      Precio $ <span>{product.price}</span>
                     </div>
                   </div>
                 </div>
@@ -45,35 +50,27 @@ const DetailCart = ({ totalOfCart }) => {
                   <RemoveCircleOutlineIcon> </RemoveCircleOutlineIcon>
                 </button>
               </div>
-            
             </div>
           );
         })}
 
-<button className="btn-detail  " onClick={()=>removeAllProducts()}>
+        <button className="btn-detail  " onClick={() => removeAllProducts()}>
           Eliminar productos
+        </button>
+        <button
+          className="btn-detail-reserved "
+          onClick={() => reservedProduct(productsCart)}
+        >
+          Reservar
         </button>
       </div>
 
       <div className="wrapper">
         <div className="amount">
           <div>
-            <span>Subtotal</span>{" "}
-            <span>
-              $ <span >{totalOfCart.toFixed(2)}</span>
-            </span>
-          </div>
-          <div >
-            <span>Envio</span>{" "}
-            <span>
-              $ <span >{10.0}</span>
-            </span>
-          </div>
-
-          <div className="total">
             <span>Total</span>{" "}
             <span>
-              $ <span id="total">{(totalOfCart + 10.0).toFixed(2)}</span>
+              $ <span>{totalOfCart.toFixed(2)}</span>
             </span>
           </div>
         </div>

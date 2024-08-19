@@ -8,53 +8,62 @@ import { Link } from "react-router-dom";
 
 const notify = () => toast.success("Agregaste con exito el articulo.");
 
-
 const ItemCount = ({ stock, selectedProduct }) => {
-
   const [goToPay, setGoToPay] = useState(false);
   const [count, setCount] = useState(1);
   const { addProductsCart } = useContext(context);
-
+  const [stockCopy, setStockCopy] = useState(stock);
 
   const addCountClick = () => {
-    if (count < stock) {
+    if (count < stockCopy) {
       setCount(count + 1);
     }
-    
   };
 
   const removeCountClick = () => {
-    if (count > 1) {
+    if (count >= 1) {
       setCount(count - 1);
-    
     }
   };
 
-  const goToPayFunction = () => {
+  const goToPayFunction = (count) => {
     setGoToPay(true);
     notify();
-    setCount(1);
+    setCount(0);
+    setStockCopy(stock - count);
   };
 
   return (
     <>
       <div className="section-center-count">
-      <Toaster position="top-center" reverseOrder={false} />
+        <Toaster position="top-center" reverseOrder={false} />
         <RemoveIcon onClick={removeCountClick} className="icon-count" />
         <p>{count}</p>
-        <AddIcon onClick={() => { addCountClick();}} className="icon-count"/>
-        </div>
-        <button type="button" className="add-cart-btn" onClick={() => addProductsCart(selectedProduct, count, goToPayFunction()) }
-         >
-           Agregar a Carrito
-         </button>
-         {goToPay === true ? (
-           <Link to={`/cart`}>
-             <button className="buy-btn"> ¡Ir a pagar! </button>
-           </Link>
-         ) : (
-           ""
-         )}
+        <AddIcon
+          onClick={() => {
+            addCountClick();
+          }}
+          className="icon-count"
+        />
+      </div>
+      {stockCopy > 0 ? (
+        <button
+          type="button"
+          className="add-cart-btn"
+          onClick={() =>
+            addProductsCart(selectedProduct, count, goToPayFunction(count))
+          }
+        >
+          Agregar a Carrito
+        </button>
+      ) : null}
+      {goToPay === true ? (
+        <Link to={`/cart`}>
+          <button className="buy-btn"> ¡Reservar! </button>
+        </Link>
+      ) : (
+        ""
+      )}
     </>
   );
 };

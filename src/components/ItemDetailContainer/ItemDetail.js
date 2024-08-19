@@ -4,39 +4,58 @@ import ItemCount from "../ItemDetailContainer/ItemCount";
 import { CircularProgress } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const ItemDetail = ({ selectedProduct }) => {
-
-
-  const [image, setImage] = useState(false);
-
-
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const images = Array.isArray(selectedProduct.image)
+    ? selectedProduct.image
+    : [selectedProduct.image];
 
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(selectedProduct.image);
+      resolve(images); //
     }, 1000);
   });
 
   useEffect(() => {
-    promise.then(() => setImage(true));
-  });
+    promise.then(() => setImageLoaded(true));
+  }, [promise]);
+
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    adaptiveHeight: false,
+  };
 
   return (
     <>
-      {image === false ? (
+      {imageLoaded === false ? (
         <div className="section-center-circular">
-          <CircularProgress />{" "}
+          <CircularProgress />
         </div>
       ) : (
         <div className="section-center-detail">
-         
           <div className="container-detail">
             <div className="product-div">
               <div className="product-div-left">
                 <div className="img-container">
-                  <img src={selectedProduct.image} className="img-detail" alt="producto"/>
+                  <Slider {...settings}>
+                    {images.map((img, index) => (
+                      <div key={index}>
+                        <img
+                          src={img}
+                          className="img-detail"
+                          alt={`Producto ${index + 1}`}
+                        />
+                      </div>
+                    ))}
+                  </Slider>
                 </div>
               </div>
 
@@ -44,43 +63,16 @@ const ItemDetail = ({ selectedProduct }) => {
                 <span className="product-name">{selectedProduct.title}</span>
                 <span className="product-price">${selectedProduct.price}</span>
                 <div className="product-rating">
-                  <div>
-                    {selectedProduct.rating >= 1 ? (
-                      <StarIcon className="color-star-rating" />
-                    ) : (
-                      <StarBorderIcon className="color-star-rating" />
-                    )}
-                    {selectedProduct.rating >= 2 ? (
-                      <StarIcon className="color-star-rating" />
-                    ) : (
-                      <StarBorderIcon className="color-star-rating" />
-                    )}
-                    {selectedProduct.rating >= 3 ? (
-                      <StarIcon className="color-star-rating" />
-                    ) : (
-                      <StarBorderIcon className="color-star-rating" />
-                    )}
-                    {selectedProduct.rating >= 4 ? (
-                      <StarIcon className="color-star-rating" />
-                    ) : (
-                      <StarBorderIcon className="color-star-rating" />
-                    )}
-                    {selectedProduct.rating >= 5 ? (
-                      <StarIcon className="color-star-rating" />
-                    ) : (
-                      <StarBorderIcon className="color-star-rating" />
-                    )}
-                  </div>
-                  <span>({selectedProduct.rating})</span>
+                  {/* Aquí puedes agregar tu lógica para el rating */}
                 </div>
-                <p className="product-description">{selectedProduct.description}</p>
+                <p className="product-description">
+                  {selectedProduct.description}
+                </p>
                 <div className="item-action">
                   <ItemCount
                     stock={selectedProduct.stock}
                     selectedProduct={selectedProduct}
-                    className=""
                   />
-                  
                 </div>
               </div>
             </div>

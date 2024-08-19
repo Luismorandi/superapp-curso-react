@@ -8,16 +8,14 @@ import { context } from "../context/CartContextProvider";
 
 const categories = [
   { name: "Electronica", id: 0, route: "/category/Electronica" },
-  { name: "Joyas", id: 1, route: "/category/Joyas" },
-  { name: "Hombre", id: 2, route: "/category/Hombre" },
-  { name: "Mujer", id: 3, route: "/category/Mujer" },
+  { name: "Cocina", id: 1, route: "/category/Cocina" },
+  { name: "Otros", id: 2, route: "/category/Otros" },
 ];
 
 const Navbar = () => {
   const { quantityProducts, productsCart } = useContext(context);
 
   const quantity = quantityProducts(productsCart);
-  
 
   return (
     <header className="header-navbar">
@@ -26,11 +24,11 @@ const Navbar = () => {
       </Link>
       <div>
         <label htmlFor="check">
-          <MenuIcon > </MenuIcon>
+          <MenuIcon> </MenuIcon>
         </label>
         <input type="checkbox" id="check" />
         <ul className="submenu-navbar">
-          <li  id="home">
+          <li id="home">
             <NavLink to="/" className="link-navbar">
               Home
             </NavLink>
@@ -48,7 +46,7 @@ const Navbar = () => {
       </div>
       <Link to="/cart">
         <div className="iconQuantity-navbar">
-          <CartWidget  />
+          <CartWidget />
           <h5 className={quantity === 0 ? "iconQuantity-navbar-none" : ""}>
             {quantity}
           </h5>

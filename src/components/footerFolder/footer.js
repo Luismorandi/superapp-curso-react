@@ -7,13 +7,12 @@ import { Link } from "react-router-dom";
 
 const categories = [
   { name: "Electronica", id: 0, route: "/category/Electronica" },
-  { name: "Joyas", id: 1, route: "/category/Joyas" },
-  { name: "Hombre", id: 2, route: "/category/Hombre" },
-  { name: "Mujer", id: 3, route: "/category/Mujer" },
+  { name: "Cocina", id: 1, route: "/category/Cocina" },
+  { name: "Otros", id: 2, route: "/category/Otros" },
 ];
 const Footer = () => {
   return (
-    <section >
+    <section>
       <div className="section-footer">
         <div className="container-footer">
           <div className="row-footer">
@@ -53,9 +52,7 @@ const Footer = () => {
               <ul>
                 <li>Facebook</li>
                 <li>Twitter</li>
-                <li>
-                  Instagram
-                </li>
+                <li>Instagram</li>
                 <li>Youtube</li>
               </ul>
               <hr className="hr-footer" />

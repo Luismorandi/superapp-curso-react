@@ -7,7 +7,7 @@ import { getDocs, collection } from "firebase/firestore";
 const ItemDetailContainer = () => {
   const [selectedProduct, setSelectedProduct] = useState([]);
   let { productId } = useParams();
-  window.scrollTo(0, 0)
+  window.scrollTo(0, 0);
   useEffect(() => {
     const productsColletions = collection(db, "products");
 
@@ -18,7 +18,9 @@ const ItemDetailContainer = () => {
           ...product.data(),
         };
       });
-      const selectedProduct = products.find((element) => element.id === productId);
+      const selectedProduct = products.find(
+        (element) => element.id === productId
+      );
       setSelectedProduct(selectedProduct);
     });
   }, [productId]);

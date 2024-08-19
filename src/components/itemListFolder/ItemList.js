@@ -13,6 +13,7 @@ const ItemList = ({ products }) => {
             image={product.image}
             rating={product.rating}
             category={product.category}
+            status={product.status ? product.status : "available"}
           />
         );
       })}

@@ -1,66 +1,86 @@
-import React, {createContext,  useState} from "react";
+import React, { createContext, useState } from "react";
 
-export const context = createContext();                                                                              
-const {Provider} =  context;                                  
-            
-const CartContextProvider = ({children}) => {
-    
-    const [productsCart, setProductsCart] = useState([])
+export const context = createContext();
+const { Provider } = context;
 
-    const removeAllProducts = () =>{
-        setProductsCart([])
+const CartContextProvider = ({ children }) => {
+  const [productsCart, setProductsCart] = useState([]);
+
+  const removeAllProducts = () => {
+    setProductsCart([]);
+  };
+  const reservedProduct = (products) => {
+    sendWhatsapp(products);
+    setProductsCart([]);
+  };
+
+  const sendWhatsapp = (products) => {
+    const phoneNumber = "+5491167232714";
+
+    const productList = products
+      .map((product, index) => `${index + 1}. ${product.title}`)
+      .join("\n");
+    const message = `Hola Luis, estoy interesado en los siguientes productos:\n\n${productList}`;
+
+    // Codificar el mensaje en URL
+    const encodedMessage = encodeURIComponent(message);
+
+    // Construir el enlace de WhatsApp
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, "_blank");
+  };
+
+  const checkProducts = (id) => {
+    let result = productsCart.find((objeto) => id === objeto.id);
+    return result;
+  };
+
+  const addProductsCart = (product, count) => {
+    if (checkProducts(product.id) === undefined) {
+      product.amount = count;
+      setProductsCart([...productsCart, product]);
+    } else {
+      let copyProducts = productsCart.slice();
+      let index = copyProducts.findIndex((objeto) => product.id === objeto.id);
+      copyProducts[index].amount += count;
+      setProductsCart(copyProducts);
     }
+  };
 
-    const checkProducts = (id) =>{
-            let result = productsCart.find((objeto) =>    id === objeto.id);
-            return result;    
-     }
-     
-     
-    const addProductsCart = (product, count ) =>{
-         if (checkProducts(product.id) === undefined){                                                                                          
-            product.amount= count
-            setProductsCart([...productsCart, product])
-            }
-     
-         else{
-            let copyProducts = productsCart.slice()
-            let index = copyProducts.findIndex(objeto=> product.id === objeto.id);
-            copyProducts[index].amount += count
-            setProductsCart(copyProducts);
-            
-            
-         }
+  const removeProducts = (product) => {
+    let copyProducts = [];
+    let id = product.id;
+    productsCart.map(function (objeto) {
+      if (id !== objeto.id) {
+        copyProducts.push(objeto);
+      }
+    });
+    setProductsCart(copyProducts);
+  };
 
-        
-     }
-     
-     
-    const removeProducts = (product) =>{
-         let copyProducts= []
-         let id = product.id 
-         productsCart.map(function(objeto){
-           if(id !== objeto.id){
-            copyProducts.push(objeto)}
-            });
-        setProductsCart(copyProducts) 
-     }
+  const quantityProducts = (products) => {
+    const amount = products.reduce(function (count, object) {
+      return count + object.amount;
+    }, 0);
 
-    const quantityProducts = (products) => {
+    return amount;
+  };
 
-        const amount= products.reduce(function (count, object) {
-            return count + object.amount
-          }, 0);
-       
-        return amount
-     }
-     
+  return (
+    <Provider
+      value={{
+        productsCart,
+        addProductsCart,
+        removeProducts,
+        quantityProducts,
+        removeAllProducts,
+        reservedProduct,
+      }}
+    >
+      {children}
+    </Provider>
+  );
+};
 
-    return(
-        <Provider value={{productsCart, addProductsCart, removeProducts, quantityProducts,  removeAllProducts}}>
-            {children} 
-        </Provider>
-    )
-}
-
-export default CartContextProvider
+export default CartContextProvider;

@@ -4,11 +4,11 @@ body {
 }
 
 
-
 .img-detail {
     width: 100%;
+    height: auto;
     display: block;
-}
+  }
 
 
 
@@ -61,11 +61,12 @@ body {
     padding: 20px;
 }
 
-.img-container .img-detail {
-    width: 200px;
+.img-container {
+    width: 100%;
+    max-width: 600px; /* O el tamaño que prefieras */
     margin: 0 auto;
-}
-
+    overflow: visible; /* Cambia a visible si es necesario */
+  }
 
 .product-div-right span {
     display: block;
