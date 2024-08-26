@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import "../ItemDetailContainer/itemDetail.css";
 import ItemCount from "../ItemDetailContainer/ItemCount";
 import { CircularProgress } from "@mui/material";
-import StarIcon from "@mui/icons-material/Star";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -13,11 +11,10 @@ const ItemDetail = ({ selectedProduct }) => {
   const images = Array.isArray(selectedProduct.image)
     ? selectedProduct.image
     : [selectedProduct.image];
-  console.log(selectedProduct);
 
-  const promise = new Promise((resolve, reject) => {
+  const promise = new Promise((resolve) => {
     setTimeout(() => {
-      resolve(images); //
+      resolve(images);
     }, 1000);
   });
 
@@ -60,80 +57,40 @@ const ItemDetail = ({ selectedProduct }) => {
                 </div>
               </div>
 
-              <div className="product-div-right" style={{ padding: "20px" }}>
-                <span
-                  className="product-name"
-                  style={{
-                    fontSize: "28px",
-                    fontWeight: "bold",
-                    display: "block",
-                    marginBottom: "10px",
-                  }}
-                >
-                  {selectedProduct.title}
-                </span>
-                <span
-                  className="product-price"
-                  style={{
-                    fontSize: "24px",
-                    color: "#ff4500",
-                    fontWeight: "bold",
-                    display: "block",
-                    marginBottom: "20px",
-                  }}
-                >
+              <div className="product-div-right">
+                <span className="product-name">{selectedProduct.title}</span>
+                <span className="product-price">
                   ${selectedProduct.price} USD
                 </span>
-                <div
-                  className="product-rating"
-                  style={{ marginBottom: "20px" }}
-                >
+                <div className="product-rating">
                   {/* Aquí puedes agregar tu lógica para el rating */}
                 </div>
-                <div
-                  className="product-description"
-                  style={{ lineHeight: "1.6" }}
-                >
-                  <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>
-                    Descripción:
-                  </h3>
-                  <p style={{ marginBottom: "20px" }}>
-                    {selectedProduct?.description?.summary}
-                  </p>
+                <div className="product-description">
+                  <h3>Descripción:</h3>
+                  <p>{selectedProduct?.description?.summary}</p>
 
-                  <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>
-                    Desperfectos:
-                  </h3>
-                  <ul style={{ marginBottom: "20px", paddingLeft: "20px" }}>
+                  <h3>Desperfectos:</h3>
+                  <ul>
                     {selectedProduct?.description.defects?.map(
                       (defect, index) => (
-                        <li key={index}>•{defect}</li>
+                        <li key={index}>• {defect}</li>
                       )
                     )}
                   </ul>
 
-                  <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>
-                    Link al Artículo Nuevo:
-                  </h3>
+                  <h3>Link al Artículo Nuevo:</h3>
                   <p>
                     <a
                       href={selectedProduct?.description?.newProductLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{
-                        color: "#007bff",
-                        textDecoration: "underline",
-                        display: "block",
-                        wordBreak: "break-all",
-                        overflowWrap: "break-word",
-                        whiteSpace: "normal",
-                      }}
+                      className="product-link"
                     >
                       {selectedProduct?.description?.newProductLink}
                     </a>
                   </p>
                 </div>
-                <div className="item-action" style={{ marginTop: "20px" }}>
+                <div className="item-action">
                   <ItemCount
                     stock={selectedProduct.stock}
                     selectedProduct={selectedProduct}
