@@ -13,6 +13,7 @@ const ItemDetail = ({ selectedProduct }) => {
   const images = Array.isArray(selectedProduct.image)
     ? selectedProduct.image
     : [selectedProduct.image];
+  console.log(selectedProduct);
 
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -59,16 +60,80 @@ const ItemDetail = ({ selectedProduct }) => {
                 </div>
               </div>
 
-              <div className="product-div-right">
-                <span className="product-name">{selectedProduct.title}</span>
-                <span className="product-price">${selectedProduct.price}</span>
-                <div className="product-rating">
+              <div className="product-div-right" style={{ padding: "20px" }}>
+                <span
+                  className="product-name"
+                  style={{
+                    fontSize: "28px",
+                    fontWeight: "bold",
+                    display: "block",
+                    marginBottom: "10px",
+                  }}
+                >
+                  {selectedProduct.title}
+                </span>
+                <span
+                  className="product-price"
+                  style={{
+                    fontSize: "24px",
+                    color: "#ff4500",
+                    fontWeight: "bold",
+                    display: "block",
+                    marginBottom: "20px",
+                  }}
+                >
+                  ${selectedProduct.price} USD
+                </span>
+                <div
+                  className="product-rating"
+                  style={{ marginBottom: "20px" }}
+                >
                   {/* Aquí puedes agregar tu lógica para el rating */}
                 </div>
-                <p className="product-description">
-                  {selectedProduct.description}
-                </p>
-                <div className="item-action">
+                <div
+                  className="product-description"
+                  style={{ lineHeight: "1.6" }}
+                >
+                  <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>
+                    Descripción:
+                  </h3>
+                  <p style={{ marginBottom: "20px" }}>
+                    {selectedProduct?.description?.summary}
+                  </p>
+
+                  <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>
+                    Desperfectos:
+                  </h3>
+                  <ul style={{ marginBottom: "20px", paddingLeft: "20px" }}>
+                    {selectedProduct?.description.defects?.map(
+                      (defect, index) => (
+                        <li key={index}>•{defect}</li>
+                      )
+                    )}
+                  </ul>
+
+                  <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>
+                    Link al Artículo Nuevo:
+                  </h3>
+                  <p>
+                    <a
+                      href={selectedProduct?.description?.newProductLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        color: "#007bff",
+                        textDecoration: "underline",
+                        display: "block",
+                        wordBreak: "break-all",
+                        overflowWrap: "break-word",
+                        whiteSpace: "normal",
+                      }}
+                    >
+                      {selectedProduct?.description?.newProductLink}
+                    </a>
+                  </p>
+                </div>
+                <div className="item-action" style={{ marginTop: "20px" }}>
                   <ItemCount
                     stock={selectedProduct.stock}
                     selectedProduct={selectedProduct}
