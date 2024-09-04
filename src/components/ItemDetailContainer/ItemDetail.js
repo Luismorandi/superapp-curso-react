@@ -78,7 +78,7 @@ const ItemDetail = ({ selectedProduct }) => {
                     )}
                   </ul>
 
-                  <h3>Link al Artículo Nuevo:</h3>
+                  <h3>Artículo de referencia (nuevo):</h3>
                   <p>
                     <a
                       href={selectedProduct?.description?.newProductLink}

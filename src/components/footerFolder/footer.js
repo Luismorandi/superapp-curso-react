@@ -1,6 +1,7 @@
 import "./footer.css";
 
 import LogoAzul from "../../assets/fondoAzul.png";
+import Logo from "../../assets/logo.png";
 import PlayStore from "../../assets/play-store.png";
 import AppStore from "../../assets/app-store.png";
 import { Link } from "react-router-dom";
@@ -26,11 +27,8 @@ const Footer = () => {
               <hr className="hr-footer" />
             </div>
             <div className="footer-col-2">
-              <img src={LogoAzul} alt="" />
-              <p>
-                AllStore, el eCommerce por departamento con los mejores
-                productos.
-              </p>
+              <img src={Logo} alt="" />
+
               <hr className="hr-footer" />
             </div>
             <div className="footer-col-3">
@@ -48,20 +46,10 @@ const Footer = () => {
               <hr className="hr-footer" />
             </div>
             <div className="footer-col-4">
-              <h3>Siguenos</h3>
-              <ul>
-                <li>Facebook</li>
-                <li>Twitter</li>
-                <li>Instagram</li>
-                <li>Youtube</li>
-              </ul>
               <hr className="hr-footer" />
             </div>
           </div>
           <hr className="hr-footer1" />
-          <p className="coderhouse-footer">
-            Trabajo final para la carrera frontEnd en Coderhouse (2022)
-          </p>
         </div>
       </div>
     </section>
