@@ -10,15 +10,13 @@ function ItemListContainer() {
   const [products, setProducts] = useState([]);
   const [loaded, setLoaded] = useState(true);
   const { categoryId } = useParams();
-  window.scrollTo(0, 0)
+  window.scrollTo(0, 0);
   useEffect(() => {
     const productsColletions = collection(db, "products");
     const q = query(
       productsColletions,
       where("category", "==", `${categoryId}`)
     );
-
-    
 
     const url = categoryId ? q : productsColletions;
 
@@ -40,7 +38,16 @@ function ItemListContainer() {
       {loaded ? (
         <CircularProgress className="circular-progress" />
       ) : (
-        <ItemList products={products} />
+        <>
+          <div className="banner">
+            <p>
+              💡 Los precios en <strong>dólares</strong> son de referencia.
+              Puedes pagar en <strong>pesos</strong> al{" "}
+              <strong>dólar blue</strong> 💸
+            </p>
+          </div>
+          <ItemList products={products} />
+        </>
       )}
     </div>
   );
