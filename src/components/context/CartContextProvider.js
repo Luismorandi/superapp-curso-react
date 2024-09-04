@@ -20,9 +20,8 @@ const CartContextProvider = ({ children }) => {
         number: "+5491167232714",
         name: "Luis",
       },
-      { number: "+34657387499", name: "Angie" },
     ];
-    const randomNumber = Math.floor(Math.random() * 2);
+    const randomNumber = 0;
     const contact = phonesNumber[randomNumber];
 
     const productList = products
