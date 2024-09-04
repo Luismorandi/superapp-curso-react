@@ -71,7 +71,7 @@ const ItemDetail = ({ selectedProduct }) => {
 
                   <h3>Desperfectos:</h3>
                   <ul>
-                    {selectedProduct?.description.defects?.map(
+                    {selectedProduct?.description?.defects?.map(
                       (defect, index) => (
                         <li key={index}>• {defect}</li>
                       )
