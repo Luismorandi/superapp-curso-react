@@ -15,18 +15,26 @@ const CartContextProvider = ({ children }) => {
   };
 
   const sendWhatsapp = (products) => {
-    const phoneNumber = "+5491167232714";
+    const phonesNumber = [
+      {
+        number: "+5491167232714",
+        name: "Luis",
+      },
+      { number: "+34657387499", name: "Angie" },
+    ];
+    const randomNumber = Math.floor(Math.random() * 2);
+    const contact = phonesNumber[randomNumber];
 
     const productList = products
       .map((product, index) => `${index + 1}. ${product.title}`)
       .join("\n");
-    const message = `Hola Luis, estoy interesado en los siguientes productos:\n\n${productList}`;
+    const message = `Hola ${contact.name}, estoy interesado en los siguientes productos:\n\n${productList}`;
 
     // Codificar el mensaje en URL
     const encodedMessage = encodeURIComponent(message);
 
     // Construir el enlace de WhatsApp
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/${contact.number}?text=${encodedMessage}`;
 
     window.open(whatsappUrl, "_blank");
   };
