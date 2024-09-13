@@ -29,9 +29,10 @@ function ItemListContainer() {
             ...product.data(),
           };
         });
-        productList = productList.sort(
-          (a, b) => priority[a.status] - priority[b.status]
-        );
+        productList = productList.sort((a, b) => {
+          return priority[a.status] - priority[b.status];
+        });
+
         setProducts(productList);
       })
       .finally(() => setLoaded(false));
