@@ -17,17 +17,21 @@ function ItemListContainer() {
       productsColletions,
       where("category", "==", `${categoryId}`)
     );
+    const priority = { available: 1, reserved: 2, sold: 3 };
 
     const url = categoryId ? q : productsColletions;
 
     getDocs(url)
       .then((result) => {
-        const productList = result.docs.map((product) => {
+        let productList = result.docs.map((product) => {
           return {
             id: product.id,
             ...product.data(),
           };
         });
+        productList = productList.sort(
+          (a, b) => priority[a.status] - priority[b.status]
+        );
         setProducts(productList);
       })
       .finally(() => setLoaded(false));
